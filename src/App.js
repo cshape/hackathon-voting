@@ -8,18 +8,14 @@ class App extends Component {
   constructor() {
     super()
       this.state = {
-        isSignedIn: false,
         route: 'signin',
         user: {}
       }
   }
 
+
+
   onRouteChange = (route) => {
-    if (route === 'signin') {
-      this.setState({isSignedIn: false})
-    } else if (route === 'home') {
-      this.setState({isSignedIn: true})
-    }
     this.setState({route: route});
   } 
 

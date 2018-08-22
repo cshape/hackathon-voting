@@ -1,4 +1,5 @@
 import React from 'react';
+import NewIdea from './NewIdea';
 
 const Ideas = ({ onRouteChange }) => {
 	return (
@@ -11,6 +12,7 @@ const Ideas = ({ onRouteChange }) => {
 					<li>automate david's job</li>
 				</ul>
 			</div>
+			<NewIdea />
 			<div className="navigation">
 				<button
 				onClick={() => onRouteChange('signin')}
