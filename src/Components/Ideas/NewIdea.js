@@ -35,21 +35,23 @@ class NewIdea extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<label>
-					Title:
-					<input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
-				</label>
-				<label>
-					Leader:
-					<input type="text" value={this.state.value} onChange={this.handleChangeLeader} />
-				</label>
-				<label>
-					Description:
-					<textarea value={this.state.value} onChange={this.handleChangeDescription} />
-				</label>
-				<input type="submit" value="Submit" />
-			</form>
+			<div className="formcontainer">
+				<form onSubmit={this.handleSubmit}>
+					<label>
+						Title:
+						<input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
+					</label>
+					<label>
+						Leader:
+						<input type="text" value={this.state.value} onChange={this.handleChangeLeader} />
+					</label>
+					<label>
+						Description:
+						<textarea value={this.state.value} onChange={this.handleChangeDescription} />
+					</label>
+					<input type="submit" value="Submit" />
+				</form>
+			</div>
 		);
 	}
 }

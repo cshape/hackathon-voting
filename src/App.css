@@ -44,3 +44,13 @@
   top: 20px;
   right: 20px;
 }
+
+.formnewidea {
+  border: 1px black solid;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 50px;
+}
