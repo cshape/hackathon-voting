@@ -27,8 +27,19 @@
   align-items: center;
 }
 
+#ideaslist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 .signinbutton {
   text-align: center;
+}
+
+.cardheader {
+  text-align: center;
+  font-weight: bold;
 }
 
 .ideascard {
@@ -53,4 +64,16 @@
   justify-content: center;
   align-items: center;
   line-height: 50px;
+}
+
+.formcontainer {
+  position: absolute;
+  left: 800px;
+}
+
+.ideacard {
+  text-align: left;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
 }
