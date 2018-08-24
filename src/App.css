@@ -5,6 +5,14 @@
   align-items: center;
 }
 
+.component-draggable {
+  cursor: pointer;
+}
+
+label {
+  padding-right: 20px;
+}
+
 #root {
   display: flex;
   justify-content: center;

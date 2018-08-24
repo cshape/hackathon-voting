@@ -25,9 +25,11 @@ class App extends Component {
         <header className="title">Clio Hackathon Forum</header>
         { this.state.route === 'home'
         ? <div className="home">
-            <div className="ideaslist"> 
-              <Ideas onRouteChange={this.onRouteChange} />
-            </div>
+           
+              <div className="ideaslist"> 
+                <Ideas onRouteChange={this.onRouteChange} />
+              </div>
+
           </div>
         : 
           <div>

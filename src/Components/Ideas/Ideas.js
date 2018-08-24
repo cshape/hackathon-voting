@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Draggable from 'react-draggable-component';
 
 class Ideas extends React.Component {
 	constructor(props) {
@@ -46,34 +48,6 @@ class Ideas extends React.Component {
 
 		var htmlString = template.join('');
 		containerli.innerHTML = htmlString;
-
-
-
-
-
-    // 	let containerli = document.createElement("li");
-  		// let dopeidea = document.createElement("div");
-  		// let pElem = document.createElement("p");
-  		// dopeidea.classList.add("ideacard");
-  		// containerli.appendChild(dopeidea);
-  		// // let ideatitle = document.createTextNode(this.state.title);
-  		// // let idealeader = document.createTextNode(this.state.leader);
-  		// // let ideadescription = document.createTextNode(this.state.description);
-  		// pElem.innerHTML = this.state.title;
-  		// dopeidea.appendChild(pElem);
-  		// pElem.innerHTML = this.state.leader;
-  		// dopeidea.appendChild(pElem);
-  		// pElem.innerHTML = this.state.description;
-  		// dopeidea.appendChild(pElem);
-
-
-
-
-  		// // dopeidea.appendChild(idealeader);
-  		// // dopeidea.appendChild(ideadescription);
-  		// let list = document.getElementById("ideaslist");
-  		// list.appendChild(containerli);
-  		// list.insertBefore(containerli, list.childNodes[0]);
   		
   		this.setState({title: ''});
   		this.setState({leader: ''});
@@ -86,54 +60,42 @@ class Ideas extends React.Component {
  	render() {
 		return (
 			<div>
-				<div className="ideascard">
-					<header className="cardheader">Ideas</header>
-					<ul id="ideaslist">
-						<li><div className="ideacard">
-								<p>Title: Example Title</p>
-								<p>Leader: Cale Shapera</p>
-								<p>Description: A couple of sentences about what the idea is about.</p>
-							</div>
-						</li>
-						<li><div className="ideacard">
-								<p>Title: Example Title</p>
-								<p>Leader: Cale Shapera</p>
-								<p>Description: A couple of sentences about what the idea is about.</p>
-							</div>
-						</li>
-						<li><div className="ideacard">
-								<p>Title: Example Title</p>
-								<p>Leader: Cale Shapera</p>
-								<p>Description: A couple of sentences about what the idea is about.</p>
-							</div>
-						</li>
-					</ul>
-				</div>
+				<Draggable>
+					<div className="ideascard">
+						<header className="cardheader">Ideas go here</header>
+						<ul id="ideaslist">
+							
+						</ul>
+					</div>
+				</Draggable>
 
 				<div className="navigation">
 					<button
 					onClick={() => this.props.onRouteChange('signin')}
 					>Sign Out</button>
 				</div>
-				<div className="formcontainer">
-					<form className="formnewidea" onSubmit={this.handleSubmit}>
-						<header className="cardheader">Gimme a cool idea!</header>
-						<label>
-							Title:
-							<input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
-						</label>
-						<label>
-							Leader:
-							<input type="text" value={this.state.leader} onChange={this.handleChangeLeader} />
-						</label>
-						<label>
-							Description:
-							<textarea value={this.state.description} onChange={this.handleChangeDescription} />
-						</label>
-						<input type="submit" value="Submit" />
-					</form>
+				<Draggable>
+					<div className="formcontainer">
+						<form className="formnewidea" onSubmit={this.handleSubmit}>
+							<header className="cardheader">Gimme a cool idea!</header>
+							<div>
+								<label>Title:</label>
+								<input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
+							</div>
+							<div>
+								<label>Leader:</label>
+								<input type="text" value={this.state.leader} onChange={this.handleChangeLeader} />
+							</div>
+							<div>
+								<label>Description:</label>
+								<input type="text" value={this.state.description} onChange={this.handleChangeDescription} />
+							</div>
+							<input type="submit" value="Submit" />
+						</form>
+					</div>
+				</Draggable>
 				</div>
-			</div>
+
 		);
 	}
 }
