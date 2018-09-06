@@ -19,5 +19,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://cshape.github.io/hackathon-voting",
+  "homepage": "https://cshape.github.io/hackathon-voting"
 }

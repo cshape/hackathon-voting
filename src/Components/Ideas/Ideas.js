@@ -1,4 +1,5 @@
 import React from 'react';
+import Submissions from './Submissions.js';
 import PropTypes from 'prop-types';
 import Draggable from 'react-draggable-component';
 import axios from 'axios';
@@ -88,10 +89,7 @@ class Ideas extends React.Component {
 			<div>
 				<Draggable>
 					<div className="ideascard">
-						<header className="cardheader">Ideas go here</header>
-						<ul id="ideaslist">
-							
-						</ul>
+						<Submissions />
 					</div>
 				</Draggable>
 
