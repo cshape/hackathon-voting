@@ -55,34 +55,6 @@ class Ideas extends React.Component {
 	  	this.setState({description: ''});
  	}
 
-  // 	handleSubmit(event) {
-    
-
-  // 		let containerli = document.createElement('li');
-  // 		let list = document.getElementById("ideaslist");
-  // 		list.appendChild(containerli);
-  // 		list.insertBefore(containerli, list.childNodes[0]);
-
-  // 		var template = [];
-
-		// template.push(
-  //   	'<div class="ideacard">',
-	 //        '<p> Title: ' + this.state.title + '</p>',
-	 //        '<p> Leader: '  + this.state.leader + '</p>',
-	 //        '<p> Description: '  + this.state.description + '</p',
-  //   	'</div>'
-		// );
-
-		// var htmlString = template.join('');
-		// containerli.innerHTML = htmlString;
-  		
-  // 		this.setState({title: ''});
-  // 		this.setState({leader: ''});
-  // 		this.setState({description: ''});
-
-  // 		event.preventDefault();
-  // 	}
-
 	
  	render() {
 		return (
@@ -112,7 +84,7 @@ class Ideas extends React.Component {
 							</div>
 							<div>
 								<label>Description:</label>
-								<input type="text" name="description" value={this.state.description} onChange={this.handleChangeDescription} />
+								<textarea rows="5" cols="25" name="description" value={this.state.description} onChange={this.handleChangeDescription} />
 							</div>
 							<input type="submit" value="Submit" />
 						</form>

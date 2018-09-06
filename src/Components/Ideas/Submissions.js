@@ -8,13 +8,6 @@ class Submissions extends React.Component {
     		}
    	}
 
-       // componentDidMount() {
-       // 	fetch('http://localhost:3001/api/ideas')
-       // 	.then(results => {
-       // 		console.log(results.json());
-       // 	})
-       // }
-
 
    		componentDidMount() {
    			fetch('http://localhost:3001/api/ideas')
@@ -24,9 +17,11 @@ class Submissions extends React.Component {
    				let submissions = data.map((idea) => {
 			        return(
 			          <div key={idea.results}>
-			            <h3>{idea.name}</h3>
-						<h2>{idea.leader}</h2>
-						<p> {idea.description} </p>
+			            <hr />
+			            <h2>Title: {idea.name}</h2>
+						<h3>Leader: {idea.leader}</h3>
+						<p>Description: {idea.description} </p>
+						
 		          </div>
 		          )
 			    })
@@ -42,9 +37,11 @@ class Submissions extends React.Component {
    				let submissions = data.map((idea) => {
 			        return(
 			          <div key={idea.results}>
-			            <h3>{idea.name}</h3>
-						<h2>{idea.leader}</h2>
-						<p> {idea.description} </p>
+			          	<hr />
+			            <h2>Title: {idea.name}</h2>
+						<h3>Leader: {idea.leader}</h3>
+						<p>Description: {idea.description} </p>
+						
 		          </div>
 		          )
 			    })
@@ -55,7 +52,8 @@ class Submissions extends React.Component {
         render() {
         	return (
         	<div className="guestdataContainer">
-          		<h6>Hackathon Submissions</h6>
+          		<h1>Hackathon Submissions</h1>
+          		<br />
           		{this.state.submissions}
         	</div>
         	);
