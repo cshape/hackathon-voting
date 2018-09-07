@@ -10,7 +10,7 @@ class Submissions extends React.Component {
 
 
    		componentDidMount() {
-   			fetch('http://localhost:3001/api/ideas')
+   			fetch('https://mighty-springs-20769.herokuapp.com/api/ideas')
    			.then(results => {
    				return results.json();
    			}).then(data => {
@@ -30,7 +30,7 @@ class Submissions extends React.Component {
    		}
 
    		componentDidUpdate() {
-   			fetch('http://localhost:3001/api/ideas')
+   			fetch('https://mighty-springs-20769.herokuapp.com/api/ideas')
    			.then(results => {
    				return results.json();
    			}).then(data => {
