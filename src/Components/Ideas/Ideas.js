@@ -39,7 +39,7 @@ class Ideas extends React.Component {
  			description: event.target.value,
  		});
 
- 	axios.post('http://localhost:3001/api/ideas', {
+ 	axios.post('https://mighty-springs-20769.herokuapp.com/api/ideas', {
  		name: this.state.title,
  		leader: this.state.leader,
  		description: this.state.description
