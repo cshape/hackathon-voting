@@ -19,7 +19,7 @@ deleteIdea(event) {
 	let button = event.target;
 	let idKey = button.id;
 	let idea = button.parentNode.firstChild.nextSibling.textContent;
-	axios.delete('http://localhost:3001/api/ideas', {
+	axios.delete('https://mighty-springs-20769.herokuapp.com/api/ideas', {
 		data: { name: idea }
 		})
 		.then(response => {
