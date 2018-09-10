@@ -1,6 +1,5 @@
 import React from 'react';
 import Submissions from './Submissions.js';
-import PropTypes from 'prop-types';
 import Draggable from 'react-draggable-component';
 import axios from 'axios';
 
@@ -15,8 +14,8 @@ class Ideas extends React.Component {
 		this.handleChangeTitle = this.handleChangeTitle.bind(this);
 		this.handleChangeLeader = this.handleChangeLeader.bind(this);
 		this.handleChangeDescription = this.handleChangeDescription.bind(this);
-
-		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this);
+		// this.deleteIdea = this.deleteIdea.bind(this);
 	}	
 
 	handleChangeTitle(event) {
@@ -39,6 +38,26 @@ class Ideas extends React.Component {
  			description: event.target.value,
  		});
 
+// use when testing w/ a local database
+	// axios.post('http://localhost:3001/api/ideas', {
+ // 		name: this.state.title,
+ // 		leader: this.state.leader,
+ // 		description: this.state.description
+ // 	})
+ // 	.then(response => {
+ // 		console.log(response, 'idea noted!');
+ // 	})
+ // 	.catch(err => {
+ // 		console.log(err, 'idea not noted god dammit');
+ // 	})
+	//  	this.setState({title: ''});
+	//   	this.setState({leader: ''});
+	//   	this.setState({description: ''});
+ // 	}
+
+
+
+ // use when connecting to heroku
  	axios.post('https://mighty-springs-20769.herokuapp.com/api/ideas', {
  		name: this.state.title,
  		leader: this.state.leader,
@@ -55,13 +74,33 @@ class Ideas extends React.Component {
 	  	this.setState({description: ''});
  	}
 
+ 	deleteIdea(id) {
+	 			console.log("click");
+	 			console.log(this.state);
+
+	 				this.setState(prevState => ({
+			        submissions: this.state.submissions.filter(el => el !== id )
+			    }));
+	 			axios.delete('http://localhost:3001/api/ideas', {
+	 				body: {
+	 					id: id,
+	 				}
+	 			})
+	 			.then(response => {
+	 				console.log(response, "idea deleted.")
+	 			})
+	 			.catch(err => {
+	 				console.log(err, "idea not deleted.")
+	 			})
+	 	}
+
 	
  	render() {
 		return (
 			<div>
 				<Draggable>
 					<div className="ideascard">
-						<Submissions />
+						<Submissions deleteIdea={this.deleteIdea} />
 					</div>
 				</Draggable>
 
