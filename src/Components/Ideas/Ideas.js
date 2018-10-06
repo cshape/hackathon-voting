@@ -9,7 +9,8 @@ class Ideas extends React.Component {
 		this.state = {
 			title: '',
 			leader: '',
-			description: ''
+			description: '',
+			submitting: false
 		};
 		this.handleChangeTitle = this.handleChangeTitle.bind(this);
 		this.handleChangeLeader = this.handleChangeLeader.bind(this);
@@ -36,6 +37,7 @@ class Ideas extends React.Component {
  			title: event.target.value,
  			leader: event.target.value,
  			description: event.target.value,
+ 			submitting: true
  		});
 
 // use when testing w/ a local database
@@ -100,7 +102,7 @@ class Ideas extends React.Component {
 			<div>
 				<Draggable>
 					<div className="ideascard">
-						<Submissions deleteIdea={this.deleteIdea} />
+						<Submissions submitting={this.state.submitting} deleteIdea={this.deleteIdea} />
 					</div>
 				</Draggable>
 

@@ -130,7 +130,7 @@ deleteIdea(event) {
 		          )
 
 			    })
-			        this.setState({submissions: submissions});
+			        this.setState({submissions: submissions.reverse()});
 			  // console.log(submissions);
 			  console.log(this.state.submissions);
    			})
