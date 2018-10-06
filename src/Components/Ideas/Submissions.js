@@ -156,7 +156,7 @@ deleteIdea(event) {
 			  //   })
 			  // this.setState({submissions: submissions})
    		// 	})
-   		// }
+   		// 
 
 
    		
