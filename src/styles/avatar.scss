@@ -9,9 +9,9 @@
 
 .avatar-picture {
   display: 0 0 auto;
-  width: 28px;
-  height: 28px;
-  border-radius: 14px;
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: $avatar-size/2;
   background: color(grey-600);
   color: color(white);
   align-items: center;
@@ -19,5 +19,5 @@
   text-align: center;
   font-weight: type-weight(bold);
   justify-content: space-around;
-  margin-right: spacing(s);
+  margin-right: $avatar-picture-margin;
 }
