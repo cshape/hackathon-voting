@@ -50,12 +50,15 @@ body {
   .idea-details-description-input {
     height: 450px;
   }
+  .idea-details-title-input {
+    // font-weight: type-weight(bold);
+    @include type(h1);
+  }
 }
 .idea-detail-right-column {
   flex: 0 0 387px;
   margin-left: spacing(l);
 }
-
 
 
 
