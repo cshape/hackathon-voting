@@ -5,6 +5,7 @@ input[type="text"], textarea {
   padding: 0 spacing(s);
   font-family: $font-family;
   @include type(body);
+  width: 100%;
   &:focus {
     @include focus;
 

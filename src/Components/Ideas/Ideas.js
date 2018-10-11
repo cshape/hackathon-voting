@@ -100,6 +100,24 @@ class Ideas extends React.Component {
  	render() {
 		return (
 			<div>
+				<div class="container">
+					<div className="idea-detail-left-column">
+						<div className="card idea-details-card">
+							<div class="card-title"></div>
+							<input type="text" placeholder="What's your idea?" autofocus="true"/>
+							<textarea placeholder="Describe your idea" className="idea-details-description-input"></textarea>
+							<button className="button">Save idea</button>
+						</div>
+						<div className="card idea-comments-card">
+							<textarea placeholder="Type your idea" className="no-margin-bottom"></textarea>
+						</div>
+					</div>
+					<div className="idea-detail-right-column">
+						<div className="card teamCard">
+						</div>
+					</div>
+				</div>
+
 				<Draggable>
 					<div className="ideascard">
 						<Submissions submitting={this.state.submitting} deleteIdea={this.deleteIdea} />

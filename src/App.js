@@ -20,7 +20,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="app-header">Clio Hackathon Forum</header>
+        <header className="app-header">Clio Hackathon Forum
+        </header>
         <div className="app-body">
           { this.state.route === 'home'
           ? <div className="home">
