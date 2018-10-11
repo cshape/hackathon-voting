@@ -40,7 +40,7 @@ class App extends Component {
                 
                 { //Check if message failed
                   (this.state.signedIn === false)
-                    ? <div><Link onClick={this.signIn} to="/ideasShow"><button >Sign In</button></Link></div> 
+                    ? <div><Link onClick={this.signIn} to="/ideasShow"><button >Sign Up</button></Link></div> 
                     : <div><Link onClick={this.signIn} to="/"><button>Sign Out</button></Link></div>
                 }
               
@@ -49,12 +49,9 @@ class App extends Component {
           
         
         
-          <div className="app-body">           
-            <Route exact path="/" render={props => <SignIn signIn = {this.signIn} />} />
-            <Route path="/ideas" render={props => <Ideas signIn = {this.signIn} />} />
-
-        <header className="app-header">Clio Hackathon Forum</header>
-        <BrowserRouter>
+  
+       
+        
           <div className="app-body">
             <Route exact path="/" component={SignIn}/>
             <Route path="/ideas" component={Ideas}/>
