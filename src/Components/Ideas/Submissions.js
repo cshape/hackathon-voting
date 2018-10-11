@@ -124,7 +124,19 @@ deleteIdea(event) {
 											<a>{idea.name}</a><br/>
 											<span class="type-subdued type-small">Owned by {idea.leader}</span>
 										</td>
-										<td>{idea.leader}</td>
+										<td>
+											<div className="avatar">
+												<div className="avatar-picture">
+													C
+												</div>
+												<div className="avatar-picture">
+													C
+												</div>
+												<div className="avatar-picture">
+													C
+												</div>
+											</div>
+										</td>
 										<td><button onClick={this.deleteIdea.bind(this)} id={i} className="button">Delete</button></td>
 			          	</tr>
 
