@@ -103,6 +103,7 @@ class Ideas extends React.Component {
 				<div class="container">
 					<div className="idea-detail-left-column">
 						<div className="card idea-details-card">
+							<div class="card-title"></div>
 							<input type="text" placeholder="What's your idea?" autofocus="true"/>
 							<textarea placeholder="Describe your idea" className="idea-details-description-input"></textarea>
 							<button className="button">Save idea</button>
