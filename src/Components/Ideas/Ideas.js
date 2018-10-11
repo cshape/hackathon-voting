@@ -101,11 +101,8 @@ class Ideas extends React.Component {
  	render() {
 		return (
 			<div>
-				<Draggable>
-					<div className="ideascard">
-						<Submissions submitting={this.state.submitting} deleteIdea={this.deleteIdea} />
-					</div>
-				</Draggable>
+				<Submissions submitting={this.state.submitting} deleteIdea={this.deleteIdea} />
+
 
 				<div className="navigation">
 					<Link to="/">

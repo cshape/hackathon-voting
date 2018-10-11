@@ -119,13 +119,14 @@ deleteIdea(event) {
    				let submissions = data.map((idea, i) => {
 			        return(
 
-			          	<div className="ideaSubmission" key={i} id={idea.id}>
-				            <hr />
-				            <h2>{idea.name}</h2>
-							<h3>Leader: {idea.leader}</h3>
-							<p>Description: {idea.description} </p>
-							<button onClick={this.deleteIdea.bind(this)} id={i} className="button">Delete</button>
-			          	</div>
+			          	<tr className="ideaSubmission" key={i} id={idea.id}>
+										<td>
+											<a>{idea.name}</a><br/>
+											<span class="type-subdued type-small">{idea.leader}</span>
+										</td>
+										<td>{idea.leader}</td>
+										<td><button onClick={this.deleteIdea.bind(this)} id={i} className="button">Delete</button></td>
+			          	</tr>
 
 		          )
 
@@ -166,11 +167,14 @@ deleteIdea(event) {
 
         	return (
         	<div className="Submissions">
-          		<h1>Hackathon Submissions</h1>
-          		<br />
-          		<ul>
-          			{this.state.submissions}
-          		</ul>
+	      		<table>
+							<tr>
+								<th>Idea name</th>
+								<th>Team</th>
+								<th>Actions</th>
+							</tr>
+	      			{this.state.submissions}
+	      		</table>
         	</div>
         	);
         }
