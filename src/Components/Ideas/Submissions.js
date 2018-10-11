@@ -122,7 +122,7 @@ deleteIdea(event) {
 			          	<tr className="ideaSubmission" key={i} id={idea.id}>
 										<td>
 											<a>{idea.name}</a><br/>
-											<span class="type-subdued type-small">{idea.leader}</span>
+											<span class="type-subdued type-small">Owned by {idea.leader}</span>
 										</td>
 										<td>{idea.leader}</td>
 										<td><button onClick={this.deleteIdea.bind(this)} id={i} className="button">Delete</button></td>
