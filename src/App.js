@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Ideas from './Components/Ideas/Ideas';
+import Ideas from './Components/Ideas/ideas';
 import SignIn from './Components/SignIn/Signin';
 import ideasForm from './Components/Ideas/ideasForm';
 import ideasShow from './Components/Ideas/ideasShow';
