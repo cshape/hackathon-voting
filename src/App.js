@@ -35,24 +35,26 @@ class App extends Component {
       <div className="App">
 
         <div className="banner">
-              <header className="app-header">Clio Hackathon Forum</header>
-              <div className="cond-button">
-                
-                { //Check if message failed
-                  (this.state.signedIn === false)
-                    ? <div><Link onClick={this.signIn} to="/ideas"><button >Sign In</button></Link></div> 
-                    : <div><Link onClick={this.signIn} to="/"><button>Sign Out</button></Link>
-                      <Link to="/ideasForm"><button>New Idea</button></Link></div>
-                }
-              
-              </div>
+              <header className="app-header">
+                <h1>Clio Hackathon Forum</h1>
+                <div className="cond-button">
+
+                  { //Check if message failed
+                    (this.state.signedIn === false)
+                      ? <div><Link onClick={this.signIn} to="/ideas" className="button">Sign In</Link></div>
+                      : <div><Link onClick={this.signIn} to="/" className="button">Sign Out</Link>
+                        <Link to="/ideasForm" className="button">New Idea</Link></div>
+                  }
+
+                </div>
+              </header>
         </div>
           <div className="app-body">
             <Route exact path="/" component={SignIn}/>
             <Route path="/ideas" component={Ideas}/>
             <Route path="/ideasShow" component={ideasShow}/>
             <Route path="/ideasForm" component={ideasForm}/>
-          </div>      
+          </div>
         </div>
         </BrowserRouter>
     );

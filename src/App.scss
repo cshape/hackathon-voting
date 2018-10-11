@@ -35,6 +35,13 @@ body {
   height: 60px;
   background-color: color(blue-nav);
   color: color(white);
+  justify-content: space-between;
+  h1 {
+    color: inherit;
+  }
+  .button {
+    margin-left: spacing(m);
+  }
 }
 .app-body {
   padding: spacing(l);
