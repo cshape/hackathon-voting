@@ -41,7 +41,8 @@ class App extends Component {
                 { //Check if message failed
                   (this.state.signedIn === false)
                     ? <div><Link onClick={this.signIn} to="/ideas"><button >Sign In</button></Link></div> 
-                    : <div><Link onClick={this.signIn} to="/"><button>Sign Out</button></Link></div>
+                    : <div><Link onClick={this.signIn} to="/"><button>Sign Out</button></Link>
+                      <Link to="/ideasForm"><button>New Idea</button></Link></div>
                 }
               
               </div>
