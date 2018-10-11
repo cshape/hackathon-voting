@@ -40,7 +40,7 @@ class App extends Component {
                 
                 { //Check if message failed
                   (this.state.signedIn === false)
-                    ? <div><Link onClick={this.signIn} to="/ideasShow"><button >Sign Up</button></Link></div> 
+                    ? <div><Link onClick={this.signIn} to="/ideas"><button >Sign In</button></Link></div> 
                     : <div><Link onClick={this.signIn} to="/"><button>Sign Out</button></Link></div>
                 }
               
@@ -57,7 +57,6 @@ class App extends Component {
             <Route path="/ideas" component={Ideas}/>
             <Route path="/ideasShow" component={ideasShow}/>
             <Route path="/ideasForm" component={ideasForm}/>
-
           </div>
         
         </div>
