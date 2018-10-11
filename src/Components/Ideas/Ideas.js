@@ -126,7 +126,7 @@ class Ideas extends React.Component {
 							</div>
 							<div>
 								<label>Description:</label>
-								<textarea rows="5" cols="25" name="description" value={this.state.description} onChange={this.handleChangeDescription} />
+								<textarea rows="5" cols="25" name="description" value={this.state.description} onChange={this.handleChangeDescription} placeholder="Describe your idea" />
 							</div>
 							<input type="submit" value="Submit" className="button"/>
 						</form>

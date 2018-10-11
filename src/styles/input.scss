@@ -1,0 +1,22 @@
+input[type="text"], textarea {
+  border: $border-dark;
+  border-radius: $border-radius;
+  background: color(white);
+  padding: 0 spacing(s);
+  font-family: $font-family;
+  @include type(body);
+  &:focus {
+    @include focus;
+
+  }
+  &::placeholder {
+    @include placeholder;
+  }
+}
+input[type="text"] {
+  height: $input-height;
+}
+textarea {
+  padding-top: spacing(s);
+  padding-bottom: spacing(s);
+}

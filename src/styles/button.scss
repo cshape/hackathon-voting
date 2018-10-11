@@ -8,4 +8,7 @@
   color: color(white);
   background: color(blue-bright);
   cursor: pointer;
+  &:focus {
+    @include focus;
+  }
 }
