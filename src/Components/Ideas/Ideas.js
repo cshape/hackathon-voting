@@ -104,7 +104,7 @@ class Ideas extends React.Component {
 
 					<div className="idea-detail-left-column">
 						<div className="card idea-details-card">
-							<input type="text" placeholder="What's your idea?" autofocus="true"/>
+							<input type="text" placeholder="What's your idea?" autofocus="true" className="idea-details-title-input"/>
 							<textarea placeholder="Describe your idea" className="idea-details-description-input"></textarea>
 							<button className="button">Save idea</button>
 							<div className="card-title spacing-stack-m">
@@ -145,6 +145,9 @@ class Ideas extends React.Component {
 						</div>
 
 						<div className="card idea-comments-card">
+							<div className="card-title">
+								<h1>Comments</h1>
+							</div>
 							<textarea placeholder="Type your idea"></textarea>
 							<button className="button">Add comment</button>
 						</div>
