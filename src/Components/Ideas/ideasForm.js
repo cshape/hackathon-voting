@@ -31,7 +31,6 @@ class IdeasForm extends React.Component {
       description: this.state.description
     }).then(response => {
       console.log(response, 'idea noted!');
-      debugger;
     })
   }
 

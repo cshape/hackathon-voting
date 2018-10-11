@@ -52,7 +52,7 @@ class App extends Component {
           <div className="app-body">
             <Route exact path="/" component={SignIn}/>
             <Route path="/ideas" component={Ideas}/>
-            <Route path="/ideasShow" component={ideasShow}/>
+            <Route path="/ideasShow/:id" component={ideasShow}/>
             <Route path="/ideasForm" component={ideasForm}/>
           </div>
         </div>
