@@ -20,12 +20,18 @@ body {
   background-color: color(grey-100);
 }
 
+#root {
+  height: 100vh;
+}
 
-.App {
+.app-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  height: 60px;
+  background-color: color(blue-nav);
+}
+.app-body {
+  padding: spacing(l);
 }
 
 .component-draggable {
@@ -36,12 +42,6 @@ label {
   padding-right: 20px;
 }
 
-#root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
 
 .title {
   position: absolute;

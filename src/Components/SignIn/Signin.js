@@ -3,7 +3,7 @@ import React from 'react';
 const SignIn = ({ onRouteChange }) => {
 	return (
 		<div className="card">
-			<header>Hello, please Sign in</header>
+			<h1>Login</h1>
 			<button
 			onClick={() => onRouteChange('home')}
 			className="button">Sign In</button>

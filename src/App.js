@@ -20,22 +20,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="title">Clio Hackathon Forum</header>
-        { this.state.route === 'home'
-        ? <div className="home">
+        <header className="app-header">Clio Hackathon Forum</header>
+        <div className="app-body">
+          { this.state.route === 'home'
+          ? <div className="home">
 
-              <div className="ideaslist">
-                <Ideas onRouteChange={this.onRouteChange} />
-              </div>
+                <div className="ideaslist">
+                  <Ideas onRouteChange={this.onRouteChange} />
+                </div>
 
-          </div>
-        :
-          <div>
-            <div className="signincard">
-              <SignIn onRouteChange={this.onRouteChange} />
             </div>
-          </div>
-        }
+          :
+            <div>
+              <div className="signincard">
+                <SignIn onRouteChange={this.onRouteChange} />
+              </div>
+            </div>
+          }
+        </div>
       </div>
     );
   }
