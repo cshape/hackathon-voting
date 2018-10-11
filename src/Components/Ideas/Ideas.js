@@ -179,11 +179,6 @@ class Ideas extends React.Component {
 					</div>
 				</Draggable>
 
-				<div className="navigation">
-					<Link to="/">
-						<button className="button">Sign Out</button>
-					</Link>
-				</div>
 				<Draggable>
 					<div className="formcontainer">
 						<form className="formnewidea" onSubmit={this.handleSubmit}>

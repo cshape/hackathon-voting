@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Ideas from './Components/Ideas/Ideas';
 import SignIn from './Components/SignIn/Signin';
-import { Route, NavLink, BrowserRouter } from 'react-router-dom';
+import { Route, NavLink, BrowserRouter, Link } from 'react-router-dom';
 import './App.scss';
 
 class App extends Component {
@@ -10,53 +10,47 @@ class App extends Component {
     super()
       this.state = {
         route: 'signin',
-        user: {}
+        user: {},
+        signedIn: false
       }
+    this.signIn = this.signIn.bind(this);
   }
 
-  onRouteChange = (route) => {
-    this.setState({route: route});
+  signIn = () => {
+   this.setState(prevState => ({
+    signedIn: !prevState.signedIn
+  }));
+    console.log(this.state.signedIn);
   }
 
   render() {
     return (
+      <BrowserRouter>
       <div className="App">
-        <header className="app-header">Clio Hackathon Forum</header>
-        <BrowserRouter>
-          <div className="app-body">
-            <Route exact path="/" component={SignIn}/>
-            <Route path="/ideas" component={Ideas}/>
-          </div>
-        </BrowserRouter>
+        <div className="banner">
+              <header className="app-header">Clio Hackathon Forum</header>
+              <div className="cond-button">
+                
+                { //Check if message failed
+                  (this.state.signedIn === false)
+                    ? <div><Link onClick={this.signIn} to="/ideas"><button >Sign In</button></Link></div> 
+                    : <div><Link onClick={this.signIn} to="/"><button>Sign Out</button></Link></div>
+                }
+              
+              </div>
         </div>
+          
+        
+        
+          <div className="app-body">           
+            <Route exact path="/" render={props => <SignIn signIn = {this.signIn} />} />
+            <Route path="/ideas" render={props => <Ideas signIn = {this.signIn} />} />
+          </div>
+        
+        </div>
+        </BrowserRouter>
     );
   }
-
-  // render() {
-  //   return (
-  //     <div className="App">
-  //       <header className="app-header">Clio Hackathon Forum
-  //       </header>
-  //       <div className="app-body">
-  //         { this.state.route === 'home'
-  //         ? <div className="home">
-
-  //               <div className="ideaslist">
-  //                 <Ideas onRouteChange={this.onRouteChange} />
-  //               </div>
-
-  //           </div>
-  //         :
-  //           <div>
-  //             <div className="signincard">
-  //               <SignIn onRouteChange={this.onRouteChange} />
-  //             </div>
-  //           </div>
-  //         }
-  //       </div>
-  //     </div>
-  //   );
-  // }
 }
 
 export default App;
