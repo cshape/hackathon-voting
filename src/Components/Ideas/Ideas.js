@@ -106,12 +106,12 @@ class Ideas extends React.Component {
 					</div>
 				</Draggable>
 
-				// <div className="navigation">
-				// 	<button
-				// 	onClick={() => this.props.onRouteChange('signin')}
-				// 	className="button"
-				// 	>Sign Out</button>
-				// </div>
+				<div className="navigation">
+					<button
+					onClick={() => this.props.onRouteChange('signin')}
+					className="button"
+					>Sign Out</button>
+				</div>
 				<Draggable>
 					<div className="formcontainer">
 						<form className="formnewidea" onSubmit={this.handleSubmit}>
