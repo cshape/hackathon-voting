@@ -15,7 +15,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     this.setState({route: route});
-  } 
+  }
 
   render() {
     return (
@@ -23,20 +23,20 @@ class App extends Component {
         <header className="title">Clio Hackathon Forum</header>
         { this.state.route === 'home'
         ? <div className="home">
-           
-              <div className="ideaslist"> 
+
+              <div className="ideaslist">
                 <Ideas onRouteChange={this.onRouteChange} />
               </div>
 
           </div>
-        : 
+        :
           <div>
             <div className="signincard">
               <SignIn onRouteChange={this.onRouteChange} />
             </div>
           </div>
         }
-      </div>    
+      </div>
     );
   }
 }
