@@ -1,0 +1,9 @@
+@mixin focus {
+  outline: 0;
+  border: 1px solid color(blue-focus);
+  box-shadow: 0 0 0 3px rgba(158,216,255,1);
+}
+
+@mixin placeholder {
+  color: color(grey-400);
+}
