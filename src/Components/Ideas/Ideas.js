@@ -2,6 +2,7 @@ import React from 'react';
 import Submissions from './Submissions.js';
 import Draggable from 'react-draggable-component';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Ideas extends React.Component {
 	constructor(props) {
@@ -179,10 +180,9 @@ class Ideas extends React.Component {
 				</Draggable>
 
 				<div className="navigation">
-					<button
-					onClick={() => this.props.onRouteChange('signin')}
-					className="button"
-					>Sign Out</button>
+					<Link to="/">
+						<button className="button">Sign Out</button>
+					</Link>
 				</div>
 				<Draggable>
 					<div className="formcontainer">
