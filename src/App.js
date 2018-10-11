@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Ideas from './Components/Ideas/Ideas';
 import SignIn from './Components/SignIn/Signin';
+import SignUp from './Components/SignIn/SignUp';
 
 import { Route, NavLink, BrowserRouter, Link } from 'react-router-dom';
 
@@ -51,6 +52,7 @@ class App extends Component {
         </div>
           <div className="app-body">
             <Route exact path="/" component={SignIn}/>
+            <Route exact path="/signup" component={SignUp}/>
             <Route path="/ideas" component={Ideas}/>
             <Route path="/ideasShow" component={ideasShow}/>
             <Route path="/ideasForm" component={ideasForm}/>
