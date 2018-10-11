@@ -143,10 +143,39 @@ class Ideas extends React.Component {
 								</ul>
 							</div>
 						</div>
-
 						<div className="card idea-comments-card">
 							<div className="card-title">
 								<h1>Comments</h1>
+							</div>
+							<div class="comment">
+								<div className="avatar spacing-stack-l">
+									<div className="avatar-picture">
+										C
+									</div>
+									<div className="avatar-info">
+										<strong>Cale Shapera</strong>
+										<br/>
+										<span className="type-small type-subdued">2 days ago</span>
+									</div>
+								</div>
+								<div class="comment-content">
+									Quisque ut dolor gravida, placerat libero vel, euismod. Phasellus laoreet lorem vel dolor tempus vehicula.
+								</div>
+							</div>
+							<div class="comment">
+								<div className="avatar spacing-stack-l">
+									<div className="avatar-picture">
+										C
+									</div>
+									<div className="avatar-info">
+										<strong>Cale Shapera</strong>
+										<br/>
+										<span className="type-small type-subdued">2 days ago</span>
+									</div>
+								</div>
+								<div class="comment-content">
+									Quisque ut dolor gravida, placerat libero vel, euismod. Phasellus laoreet lorem vel dolor tempus vehicula.
+								</div>
 							</div>
 							<textarea placeholder="Type your idea"></textarea>
 							<button className="button">Add comment</button>
