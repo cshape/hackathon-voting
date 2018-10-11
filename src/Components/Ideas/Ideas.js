@@ -103,17 +103,22 @@ class Ideas extends React.Component {
 				<div class="container">
 					<div className="idea-detail-left-column">
 						<div className="card idea-details-card">
-							<div class="card-title"></div>
 							<input type="text" placeholder="What's your idea?" autofocus="true"/>
 							<textarea placeholder="Describe your idea" className="idea-details-description-input"></textarea>
 							<button className="button">Save idea</button>
+							<div className="card-title"><h1>Hackathon Idea Pitching/Team Organization Web App</h1></div>
 						</div>
 						<div className="card idea-comments-card">
-							<textarea placeholder="Type your idea" className="no-margin-bottom"></textarea>
+							<textarea placeholder="Type your idea"></textarea>
+							<button className="button">Add comment</button>
 						</div>
 					</div>
 					<div className="idea-detail-right-column">
 						<div className="card teamCard">
+							<div class="card-title">
+								<h1>Team</h1>
+								<a>Add team members</a>
+							</div>
 						</div>
 					</div>
 				</div>

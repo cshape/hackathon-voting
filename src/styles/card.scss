@@ -6,3 +6,13 @@
   padding: spacing(l);
   margin-bottom: spacing(l);
 }
+.card-title {
+  display: flex;
+  align-items: center;
+  h1 {
+    flex: 1 1 auto
+  }
+  a {
+    flex: 0 0 auto;
+  }
+}

@@ -3,7 +3,7 @@ $font-family: -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans
 // Add your weights here
 $type-weights: (
   regular: 400,
-  bold: 500
+  bold: 700
 );
 // Gets a type weight e.g. type-weight(bold);
 @function type-weight($weight) {
@@ -29,19 +29,19 @@ $type-styles: (
   h1: (
     font-size: 20px,
     line-height: 24px,
-    font-weight: type-weight(regular),
+    font-weight: type-weight(bold),
     color: type-color(default)
   ),
   h2: (
     font-size: 18px,
     line-height: 22px,
-    font-weight: type-weight(regular),
+    font-weight: type-weight(bold),
     color: type-color(default)
   ),
   h3: (
     font-size: 16px,
     line-height: 20px,
-    font-weight: type-weight(regular),
+    font-weight: type-weight(bold),
     color: type-color(default)
   ),
   small: (
@@ -92,4 +92,26 @@ $type-styles: (
   .type-#{$name} {
     @include type($name)
   }
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  @include type(h1);
+}
+h2 {
+  @include type(h2);
+}
+h3 {
+  @include type(h3);
+}
+label {
+  @include type(strong);
+}
+a {
+  color: color(blue-link);
+  text-decoration: none;
+  cursor: pointer;
 }
