@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Ideas from './Components/Ideas/Ideas';
 import SignIn from './Components/SignIn/Signin';
+import ideasForm from './Components/Ideas/ideasForm';
+import ideasShow from './Components/Ideas/ideasShow';
 import { Route, NavLink, BrowserRouter } from 'react-router-dom';
 import './App.scss';
 
@@ -26,6 +28,8 @@ class App extends Component {
           <div className="app-body">
             <Route exact path="/" component={SignIn}/>
             <Route path="/ideas" component={Ideas}/>
+            <Route path="/ideasShow" component={ideasShow}/>
+            <Route path="/ideasForm" component={ideasForm}/>
           </div>
         </BrowserRouter>
         </div>
