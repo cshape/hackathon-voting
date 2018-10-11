@@ -31,7 +31,7 @@ class IdeasForm extends React.Component {
       description: this.state.description
     }).then(response => {
       console.log(response, 'idea noted!');
-
+      debugger;
     })
   }
 
@@ -59,7 +59,7 @@ class IdeasForm extends React.Component {
                 <Link to="/ideasShow">
                   <button
                     className="button"
-                    onclick={this.handleSubmit}
+                    onClick={this.handleSubmit}
                   >
                     Save idea
                   </button>
