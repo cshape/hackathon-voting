@@ -147,7 +147,7 @@ class Ideas extends React.Component {
 							<div className="card-title">
 								<h1>Comments</h1>
 							</div>
-							<div class="comment">
+							<div className="comment">
 								<div className="avatar spacing-stack-l">
 									<div className="avatar-picture">
 										C
@@ -158,11 +158,11 @@ class Ideas extends React.Component {
 										<span className="type-small type-subdued">2 days ago</span>
 									</div>
 								</div>
-								<div class="comment-content">
+								<div className="comment-content">
 									Quisque ut dolor gravida, placerat libero vel, euismod. Phasellus laoreet lorem vel dolor tempus vehicula.
 								</div>
 							</div>
-							<div class="comment">
+							<div className="comment">
 								<div className="avatar spacing-stack-l">
 									<div className="avatar-picture">
 										C
@@ -173,11 +173,11 @@ class Ideas extends React.Component {
 										<span className="type-small type-subdued">2 days ago</span>
 									</div>
 								</div>
-								<div class="comment-content">
+								<div className="comment-content">
 									Quisque ut dolor gravida, placerat libero vel, euismod. Phasellus laoreet lorem vel dolor tempus vehicula.
 								</div>
 							</div>
-							<textarea placeholder="Type your idea"></textarea>
+							<textarea placeholder="Type a comment" className="comment-text-area"></textarea>
 							<button className="button">Add comment</button>
 						</div>
 					</div>
