@@ -1,4 +1,6 @@
-input[type="text"], textarea {
+input[type="text"],
+input[type="password"],
+textarea {
   border: $border-dark;
   border-radius: $border-radius;
   background: color(white);
@@ -14,7 +16,8 @@ input[type="text"], textarea {
     @include placeholder;
   }
 }
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   height: $input-height;
 }
 textarea {
