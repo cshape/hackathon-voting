@@ -10,6 +10,7 @@
 @import 'styles/avatar';
 
 @import 'styles/idea-detail';
+@import 'styles/comments';
 
 * {
   box-sizing: border-box;
@@ -45,7 +46,10 @@ body {
   display: flex;
 }
 
-
+.sign-in-card {
+  width: 540px;
+  margin: 0 auto;
+}
 
 
 

@@ -1,0 +1,14 @@
+.comment-text-area {
+  height: 145px;
+}
+.comment {
+  border-top: $border-light;
+  padding: spacing(l) 0;
+  &:last-of-type {
+    border-bottom: $border-light;
+    margin-bottom: spacing(l);
+  }
+}
+.comment-content {
+  margin-left: $avatar-size + $avatar-picture-margin;
+}

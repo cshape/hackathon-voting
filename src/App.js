@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import Ideas from './Components/Ideas/Ideas';
 import SignIn from './Components/SignIn/Signin';
+
 import { Route, NavLink, BrowserRouter, Link } from 'react-router-dom';
+
+import ideasForm from './Components/Ideas/ideasForm';
+import ideasShow from './Components/Ideas/ideasShow';
+
+
 import './App.scss';
 
 class App extends Component {
@@ -27,13 +33,14 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
+
         <div className="banner">
               <header className="app-header">Clio Hackathon Forum</header>
               <div className="cond-button">
                 
                 { //Check if message failed
                   (this.state.signedIn === false)
-                    ? <div><Link onClick={this.signIn} to="/ideas"><button >Sign In</button></Link></div> 
+                    ? <div><Link onClick={this.signIn} to="/ideasShow"><button >Sign In</button></Link></div> 
                     : <div><Link onClick={this.signIn} to="/"><button>Sign Out</button></Link></div>
                 }
               
@@ -45,6 +52,15 @@ class App extends Component {
           <div className="app-body">           
             <Route exact path="/" render={props => <SignIn signIn = {this.signIn} />} />
             <Route path="/ideas" render={props => <Ideas signIn = {this.signIn} />} />
+
+        <header className="app-header">Clio Hackathon Forum</header>
+        <BrowserRouter>
+          <div className="app-body">
+            <Route exact path="/" component={SignIn}/>
+            <Route path="/ideas" component={Ideas}/>
+            <Route path="/ideasShow" component={ideasShow}/>
+            <Route path="/ideasForm" component={ideasForm}/>
+
           </div>
         
         </div>
