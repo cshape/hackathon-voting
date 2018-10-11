@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 class IdeasShow extends React.Component {
   constructor(props) {
 		super(props);
@@ -10,7 +12,8 @@ class IdeasShow extends React.Component {
 
   render() {
     return (
-      <p>show page</p>
+      <div>
+      </div>
     );
   }
 }
