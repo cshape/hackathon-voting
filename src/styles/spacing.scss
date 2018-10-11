@@ -1,0 +1,25 @@
+$spacing: (
+  xs: 4px,
+  s: 8px,
+  m: 12px,
+  l: 20px,
+  xl: 32px,
+);
+
+// Function for setting spacing inside a declaration - e.g. margin-bottom: spacing(xl);
+@function spacing($spacing-size) {
+  @return map-get($spacing, $spacing-size);
+}
+
+// Utility classes - class="stack-xl"
+@each $name, $value in $spacing {
+  .spacing-stack-#{$name} {
+    margin-bottom: $value !important;
+  }
+  .spacing-inline-#{$name} {
+    margin-right: $value !important;
+  }
+  .spacing-insets-#{$name} {
+    padding: $value !important;
+  }
+}

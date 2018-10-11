@@ -1,0 +1,22 @@
+$colors: (
+  blue-clio: #0075bb,
+  blue-nav: #001C37,
+  blue-link: #0070E0,
+  blue-focus: #9ED8FF,
+  blue-bright: #089CFF,
+  grey-100: #F4F7F9,
+  grey-200: #DEE6EA,
+  grey-300: #CCD9E0,
+  grey-400: #90A6BC,
+  grey-500: #576C82,
+  grey-600: #2C3D4E,
+  red: #E41B28,
+  orange: #FDAA1E,
+  green: #339931,
+  white: #fff
+);
+
+// Function for setting color in a declaration - e.g. background-color: color(grey-100);
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
