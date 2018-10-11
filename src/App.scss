@@ -54,6 +54,23 @@ body {
 table {
   width: 100%;
   border: $border-dark;
+  background: color(white);
+  border-collapse: collapse;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: $border-radius;
+  th, td {
+    text-align: left;
+    padding: spacing(s);
+    &:first-child {
+      padding-left: spacing(l);
+    }
+  }
+  th {
+    padding-top: spacing(m);
+    padding-bottom: spacing(m);
+    border-bottom: $border-light;
+  }
 }
 
 
