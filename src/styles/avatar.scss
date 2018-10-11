@@ -1,0 +1,23 @@
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-info {
+  display: 1 1 auto;
+}
+
+.avatar-picture {
+  display: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background: color(grey-600);
+  color: color(white);
+  align-items: center;
+  display: flex;
+  text-align: center;
+  font-weight: type-weight(bold);
+  justify-content: space-around;
+  margin-right: spacing(s);
+}
