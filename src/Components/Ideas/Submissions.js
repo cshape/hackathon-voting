@@ -11,7 +11,7 @@ class Submissions extends React.Component {
     		}
 	  this.deleteIdea = this.deleteIdea.bind(this);
 
-   	
+
    	}
 
 
@@ -31,21 +31,21 @@ deleteIdea(event) {
 	console.log(idea);
 	// this.setState({
 	// 	submissions: "poop",
-	// }); 
+	// });
 	// this.setState({
 	// 	submissions: this.state.submissions.filter(newlist => this.state.submissions.key !== "poop"),
-	// }); 
+	// });
 
 	this.setState(() => ({
 		submissions: this.state.submissions.filter(match => match.key !== idKey),
 	}))
 }
 
-// use when testing locally 
+// use when testing locally
 
 	// componentDidMount() {
 	// // let deleteIdea = this.props.deleteIdea.bind(this);
-	
+
 
 
 	// fetch('http://localhost:3001/api/ideas')
@@ -54,7 +54,7 @@ deleteIdea(event) {
  //   			}).then(data => {
  //   				let submissions = data.map((idea, i) => {
 	// 		        return(
-			          
+
 	// 		          	<div className="ideaSubmission" key={i} id={idea.id}>
 	// 			            <hr />
 	// 			            <h2>{idea.name}</h2>
@@ -62,7 +62,7 @@ deleteIdea(event) {
 	// 						<p>Description: {idea.description} </p>
 	// 						<button onClick={this.deleteIdea.bind(this)} id={i}>Delete</button>
 	// 		          	</div>
-			         
+
 	// 	          )
 
 	// 		    })
@@ -73,8 +73,8 @@ deleteIdea(event) {
  //   		}
 
    		//  componentDidUpdate(prevProps, prevState) {
-   		
-   	
+
+
 
    		// 	fetch('http://localhost:3001/api/ideas')
    		// 	.then(results => {
@@ -82,7 +82,7 @@ deleteIdea(event) {
    		// 	}).then(data => {
    		// 		let submissions = data.map((idea, i) => {
 			  //       return(
-			          
+
 			  //         	<div className="ideaSubmission" key={i} id={idea.id}>
 				 //            <hr />
 				 //            <h2>{idea.name}</h2>
@@ -90,26 +90,26 @@ deleteIdea(event) {
 					// 		<p>Description: {idea.description} </p>
 					// 		<button onClick={this.deleteIdea.bind(this)} id={i}>Delete</button>
 			  //         	</div>
-			         
+
 		   //        )
 			  //   })
 			  // this.setState({submissions: submissions})
 
    		// 	})
    		// }
-   	
-
-   	
-
-   
 
 
-   	
+
+
+
+
+
+
 
 
  // use when live on heroku
    		componentDidMount() {
-   			
+
 
 
    			fetch('https://mighty-springs-20769.herokuapp.com/api/ideas')
@@ -118,15 +118,15 @@ deleteIdea(event) {
    			}).then(data => {
    				let submissions = data.map((idea, i) => {
 			        return(
-			          
+
 			          	<div className="ideaSubmission" key={i} id={idea.id}>
 				            <hr />
 				            <h2>{idea.name}</h2>
 							<h3>Leader: {idea.leader}</h3>
 							<p>Description: {idea.description} </p>
-							<button onClick={this.deleteIdea.bind(this)} id={i}>Delete</button>
+							<button onClick={this.deleteIdea.bind(this)} id={i} className="button">Delete</button>
 			          	</div>
-			         
+
 		          )
 
 			    })
@@ -156,10 +156,10 @@ deleteIdea(event) {
 			  //   })
 			  // this.setState({submissions: submissions})
    		// 	})
-   		// 
+   		//
 
 
-   		
+
 
         render() {
 

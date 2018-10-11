@@ -2,12 +2,11 @@ import React from 'react';
 
 const SignIn = ({ onRouteChange }) => {
 	return (
-		<div className="signinbutton">
+		<div className="card">
 			<header>Hello, please Sign in</header>
-			<br />
 			<button
 			onClick={() => onRouteChange('home')}
-			>Sign In</button>
+			className="button">Sign In</button>
 		</div>
 	);
 }

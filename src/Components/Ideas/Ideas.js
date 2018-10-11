@@ -17,7 +17,7 @@ class Ideas extends React.Component {
 		this.handleChangeDescription = this.handleChangeDescription.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		// this.deleteIdea = this.deleteIdea.bind(this);
-	}	
+	}
 
 	handleChangeTitle(event) {
     	this.setState({title: event.target.value});
@@ -96,7 +96,7 @@ class Ideas extends React.Component {
 	 			})
 	 	}
 
-	
+
  	render() {
 		return (
 			<div>
@@ -109,6 +109,7 @@ class Ideas extends React.Component {
 				<div className="navigation">
 					<button
 					onClick={() => this.props.onRouteChange('signin')}
+					className="button"
 					>Sign Out</button>
 				</div>
 				<Draggable>
@@ -127,7 +128,7 @@ class Ideas extends React.Component {
 								<label>Description:</label>
 								<textarea rows="5" cols="25" name="description" value={this.state.description} onChange={this.handleChangeDescription} />
 							</div>
-							<input type="submit" value="Submit" />
+							<input type="submit" value="Submit" className="button"/>
 						</form>
 					</div>
 				</Draggable>
