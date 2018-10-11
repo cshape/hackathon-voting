@@ -37,9 +37,9 @@ class IdeasForm extends React.Component {
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit}>
-            <div className="idea-detail-left-column">
-              <div className="card idea-details-card">
+          <div className="idea-detail-left-column">
+            <div className="card idea-details-card">
+              <form onSubmit={this.handleSubmit}>
                 <input
                   type="text"
                   placeholder="What's your idea?"
@@ -63,10 +63,9 @@ class IdeasForm extends React.Component {
                     Save idea
                   </button>
                 </Link>
-
-              </div>
+              </form>
             </div>
-          </form>
+          </div>
 					<div className="idea-detail-right-column">
 						<div className="card team-card">
 							<div className="card-title">
