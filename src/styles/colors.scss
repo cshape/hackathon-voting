@@ -8,6 +8,7 @@ $colors: (
   white: #fff,
 );
 
+// Function for setting color in a declaration - e.g. background-color: color(grey-100);
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
