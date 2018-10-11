@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 
 class Submissions extends React.Component {
@@ -117,11 +117,14 @@ deleteIdea(event) {
    				return results.json();
    			}).then(data => {
    				let submissions = data.map((idea, i) => {
+             let path = "/ideasShow/" + idea._id;
 			        return(
 
 			          	<tr className="ideaSubmission" key={i} id={idea.id}>
 										<td>
-											<a>{idea.name}</a><br/>
+                      <Link to={path}>
+                        <a>{idea.name}</a>
+                      </Link><br/>
 											<span class="type-subdued type-small">Owned by {idea.leader}</span>
 										</td>
 										<td>{idea.leader}</td>
