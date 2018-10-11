@@ -107,7 +107,11 @@ class Ideas extends React.Component {
 							<input type="text" placeholder="What's your idea?" autofocus="true"/>
 							<textarea placeholder="Describe your idea" className="idea-details-description-input"></textarea>
 							<button className="button">Save idea</button>
-							<div className="card-title spacing-stack-m"><h1>Hackathon Idea Pitching/Team Organization Web App</h1></div>
+							<div className="card-title spacing-stack-m">
+								<h1>Hackathon Idea Pitching/Team Organization Web App</h1>
+								<a className="spacing-inline-m">Delete</a>
+								<a>Edit</a>
+							</div>
 
 							<div className="avatar spacing-stack-l">
 								<div className="avatar-picture">
