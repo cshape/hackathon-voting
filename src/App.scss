@@ -46,6 +46,9 @@ body {
   input[type="text"], textarea {
     margin-bottom: $input-margin;
   }
+  .idea-details-description-input {
+    height: 450px;
+  }
 }
 .idea-detail-right-column {
   flex: 0 0 387px;
