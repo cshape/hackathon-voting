@@ -1,0 +1,17 @@
+.idea-detail-left-column {
+  flex: 1 1 auto;
+  input[type="text"], textarea {
+    margin-bottom: $input-margin;
+  }
+  .idea-details-description-input {
+    height: 450px;
+  }
+  .idea-details-title-input {
+    // font-weight: type-weight(bold);
+    @include type(h1);
+  }
+}
+.idea-detail-right-column {
+  flex: 0 0 387px;
+  margin-left: spacing(l);
+}
