@@ -102,8 +102,6 @@ class Ideas extends React.Component {
 		return (
 			<div>
 				<Submissions submitting={this.state.submitting} deleteIdea={this.deleteIdea} />
-
-
 				<Draggable>
 					<div className="formcontainer">
 						<form className="formnewidea" onSubmit={this.handleSubmit}>
