@@ -104,19 +104,18 @@ class Ideas extends React.Component {
 					<div className="idea-detail-left-column">
 						<div className="card idea-details-card">
 							<input type="text"/>
-							<textarea placeholder="Describe your idea"></textarea>
+							<textarea placeholder="Describe your idea" className="no-margin-bottom"></textarea>
 						</div>
 						<div className="card idea-comments-card">
-							<textarea placeholder="Type your idea"></textarea>
+							<textarea placeholder="Type your idea" className="no-margin-bottom"></textarea>
 						</div>
 					</div>
-					<div className="right-column">
-						<div className="card ideaDetailsCard">
-							<input type="text"/>
-							<textarea placeholder="Describe your idea"></textarea>
+					<div className="idea-detail-right-column">
+						<div className="card teamCard">
 						</div>
 					</div>
 				</div>
+
 				<Draggable>
 					<div className="ideascard">
 						<Submissions submitting={this.state.submitting} deleteIdea={this.deleteIdea} />
