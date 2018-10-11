@@ -1,0 +1,11 @@
+.button {
+  border: 1px solid color(blue-bright);
+  border-radius: 4px;
+  padding: 0 spacing(m);
+  height: $input-height;
+  font-family: $font-family;
+  font-weight: type-weight(bold);
+  color: color(white);
+  background: color(blue-bright);
+  cursor: pointer;
+}

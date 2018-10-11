@@ -1,6 +1,14 @@
 @import 'styles/colors';
 @import 'styles/spacing';
 @import 'styles/typography';
+@import 'styles/variables';
+
+@import 'styles/button';
+@import 'styles/card';
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   @include type(body);
@@ -8,11 +16,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: color(grey-100);
-}
-
-//This is just to test the scss implementation and should be removed
-.signinbutton {
-  margin-bottom: spacing(xl);
 }
 
 
@@ -42,15 +45,6 @@ label {
   position: absolute;
   top: 50px;
   font-size: 48px;
-}
-
-.signincard {
-  border: 1px black solid;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 #ideaslist {
