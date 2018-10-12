@@ -19,7 +19,7 @@ class App extends Component {
       this.state = {
         route: 'signin',
         user: {},
-        signedIn: false,
+        signedIn: '',
         isLoading: false,
         signInError: '',
         signInEmail: '',
@@ -166,9 +166,8 @@ onSignIn() {
 
               { //Check if message failed
                 (this.state.signedIn == false)
-                  ? <div></div>
-                  : <div><Link onClick={this.signOut} to="/">Sign Out</Link>
-                    <Link to="/ideasForm" className="button">New Idea</Link></div>
+                  ? <div><Link to="/ideasForm" className="button">New Idea</Link></div>
+                  : <div><Link onClick={this.signOut} to="/">Sign Out</Link></div>
               }
 
             </div>
