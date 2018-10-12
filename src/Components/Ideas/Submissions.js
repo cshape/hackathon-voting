@@ -140,7 +140,7 @@ deleteIdea(event) {
 												</div>
 											</div>
 										</td>
-										<td><button onClick={this.deleteIdea.bind(this)} id={i} className="button">Delete</button></td>
+										<td><button onClick={this.deleteIdea.bind(this)} id={i} className="button button__small">Delete</button></td>
 			          	</tr>
 
 		          )

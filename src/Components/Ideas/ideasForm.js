@@ -55,13 +55,11 @@ class IdeasForm extends React.Component {
                   onChange={this.handleChangeDescription}
                 >
                 </textarea>
-                <Link to="/ideasShow">
-                  <button
-                    className="button"
-                    onClick={this.handleSubmit}
-                  >
-                    Save idea
-                  </button>
+                <Link to="/ideas" className="button spacing-inline-m" onClick={this.handleSubmit}>
+                  Save idea
+                </Link>
+                <Link to="/ideas">
+                  Cancel
                 </Link>
               </form>
             </div>
