@@ -16,7 +16,7 @@ class Card extends React.Component {
 		return (
 			<div className="card">
 				{this.renderCardTitle()}
-				{this.title}
+				{this.props.children}
 			</div>
 		);
   }

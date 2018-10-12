@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Card from '../UI/Card';
 
 class IdeasForm extends React.Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class IdeasForm extends React.Component {
     return (
       <div className="container">
           <div className="idea-detail-left-column">
-            <div className="card idea-details-card">
+            <Card className="card idea-details-card">
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text"
@@ -62,7 +63,7 @@ class IdeasForm extends React.Component {
                   Cancel
                 </Link>
               </form>
-            </div>
+            </Card>
           </div>
 					<div className="idea-detail-right-column">
 						<div className="card team-card">
