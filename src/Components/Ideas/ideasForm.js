@@ -25,7 +25,7 @@ class IdeasForm extends React.Component {
 
 	handleSubmit(event) {
     event.preventDefault();
-    axios.post('https://mighty-springs-20769.herokuapp.com/api/ideas', {
+    axios.post('http://localhost:3001/api/ideas', {
       name: this.state.title,
       leader: this.state.leader,
       description: this.state.description
