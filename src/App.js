@@ -80,6 +80,7 @@ class App extends Component {
     });
 
     console.log("attempting signup");
+    console.log(this.state.firstname);
     // Post request to backend
     
       axios.post('https://mighty-springs-20769.herokuapp.com/api/users/signup', {
@@ -142,7 +143,11 @@ class App extends Component {
 
             <Route
               path='/signup'
-              render={(props) => <SignUp onSignUp={this.onSignUp} />}
+              render={(props) => <SignUp 
+                onSignUp={this.onSignUp} 
+                onTextboxChangeSignUpEmail={this.onTextboxChangeSignUpEmail}
+                onTextboxChangeSignUpPassword={this.onTextboxChangeSignUpPassword}
+                />}
             />
 
 
