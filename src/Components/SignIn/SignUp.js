@@ -35,7 +35,7 @@ onTextboxChangeSignUpEmail(event) {
 					   placeholder="Password" 
 					   className="spacing-stack-m"
 					   onChange={this.props.onTextboxChangeSignUpPassword}/>
-				<Link to="/ideas" onClick={this.props.onSignUp} className="button spacing-inline-m">
+				<Link to="/" onClick={this.props.onSignUp} className="button spacing-inline-m">
 					Sign up
 				</Link>
 				<Link to="/">

@@ -20,7 +20,7 @@ class App extends Component {
         route: 'signin',
         user: {},
         signedIn: false,
-        isLoading: true,
+        isLoading: false,
         signInEmail: '',
         signInPassword: '',
         signUpEmail: '',
@@ -35,6 +35,12 @@ class App extends Component {
     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
   }
+
+    componentDidMount() {
+   this.setState({
+     isLoading: false
+   });
+}
 
     onTextboxChangeSignInEmail(event) {
     this.setState({
@@ -101,23 +107,6 @@ class App extends Component {
         this.setState({lastname: ''});
       }
 
-// use when testing w/ a local database
-  // axios.post('http://localhost:3001/api/ideas', {
- //     name: this.state.title,
- //     leader: this.state.leader,
- //     description: this.state.description
- //   })
- //   .then(response => {
- //     console.log(response, 'idea noted!');
- //   })
- //   .catch(err => {
- //     console.log(err, 'idea not noted god dammit');
- //   })
-  //    this.setState({title: ''});
-  //    this.setState({leader: ''});
-  //    this.setState({description: ''});
- //   }
-
 
 
   render() {
@@ -138,7 +127,13 @@ class App extends Component {
             </div>
           </header>
           <div className="app-body">
-            <Route exact path="/" component={SignIn}/>
+            <Route  exact path="/" 
+                    render={(props) => <SignIn 
+                    signIn={this.signIn} 
+                    onTextboxChangeSignInEmail={this.onTextboxChangeSignInEmail}
+                    onTextboxChangeSignInPassword={this.onTextboxChangeSignInPassword}
+                      />}
+                  />
            
 
             <Route
