@@ -102,26 +102,6 @@ class Ideas extends React.Component {
 		return (
 			<div>
 				<Submissions submitting={this.state.submitting} deleteIdea={this.deleteIdea} />
-				<Draggable>
-					<div className="formcontainer">
-						<form className="formnewidea" onSubmit={this.handleSubmit}>
-							<header className="cardheader">Gimme a cool idea!</header>
-							<div>
-								<label>Title:</label>
-								<input type="text" name="title" value={this.state.title} onChange={this.handleChangeTitle} />
-							</div>
-							<div>
-								<label>Leader:</label>
-								<input type="text" name="leader"value={this.state.leader} onChange={this.handleChangeLeader} />
-							</div>
-							<div>
-								<label>Description:</label>
-								<textarea rows="5" cols="25" name="description" value={this.state.description} onChange={this.handleChangeDescription} placeholder="Describe your idea" />
-							</div>
-							<input type="submit" value="Submit" className="button"/>
-						</form>
-					</div>
-				</Draggable>
 			</div>
 		);
 	}
