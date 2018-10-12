@@ -158,7 +158,7 @@ onSignIn() {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/hackathon-voting">
       <div className="App">
           <header className="app-header">
             <h1><Link to="/ideas">Clio Hackathon Forum</Link></h1>
