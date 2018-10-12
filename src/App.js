@@ -4,7 +4,7 @@ import SignIn from './Components/SignIn/Signin';
 import SignUp from './Components/SignIn/SignUp';
 import axios from 'axios';
 
-import { Route, NavLink, BrowserRouter, Link } from 'react-router-dom';
+import { Route, Redirect, NavLink, BrowserRouter, Link } from 'react-router-dom';
 
 import ideasForm from './Components/Ideas/ideasForm';
 import ideasShow from './Components/Ideas/ideasShow';
@@ -21,6 +21,7 @@ class App extends Component {
         user: {},
         signedIn: false,
         isLoading: false,
+        signInError: '',
         signInEmail: '',
         signInPassword: '',
         signUpEmail: '',
@@ -28,12 +29,13 @@ class App extends Component {
         firstname: '',
         lastname: ''
         }
-    this.signIn = this.signIn.bind(this);
+    this.signOut = this.signOut.bind(this);
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
+    this.onSignIn = this.onSignIn.bind(this);
   }
 
     componentDidMount() {
@@ -66,11 +68,56 @@ class App extends Component {
     });
   }
 
-  signIn = () => {
-   this.setState(prevState => ({
+signOut() {
+  this.setState(prevState => ({
     signedIn: !prevState.signedIn
-  }));
-    console.log(this.state.signedIn);
+  }))
+}  
+
+onSignIn() {
+    // Grab state
+    const {
+      signInEmail,
+      signInPassword,
+    } = this.state;
+    this.setState({
+      isLoading: true,
+    });
+
+
+    // Post request to backend
+    fetch('https://mighty-springs-20769.herokuapp.com/api/users/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: signInEmail,
+        password: signInPassword,
+      }),
+    }).then(res => res.json())
+      .then(json => {
+        console.log('json', json);
+        if (json.success) {
+          this.setState({
+            signInError: json.message,
+            isLoading: false,
+            signInPassword: '',
+            signInEmail: '',
+            signedIn: true
+          });
+        console.log("signedin:", this.state.signedIn);
+
+        } else {
+          this.setState({
+            signInError: json.message,
+            isLoading: false,
+            signInPassword: '',
+            signInEmail: ''
+          });
+          console.log("signedin:", this.state.signedIn);
+        }
+      });
   }
 
   onSignUp() {
@@ -119,8 +166,8 @@ class App extends Component {
 
               { //Check if message failed
                 (this.state.signedIn == false)
-                  ? <div><Link onClick={this.signIn} to="/ideas" className="button">Sign In</Link></div>
-                  : <div><Link onClick={this.signIn} to="/">Sign Out</Link>
+                  ? <div></div>
+                  : <div><Link onClick={this.signOut} to="/">Sign Out</Link>
                     <Link to="/ideasForm" className="button">New Idea</Link></div>
               }
 
@@ -128,12 +175,16 @@ class App extends Component {
           </header>
           <div className="app-body">
             <Route  exact path="/" 
-                    render={(props) => <SignIn 
-                    signIn={this.signIn} 
+                    render={(props) => (
+                    this.state.signedIn === true ? (  
+                      <Redirect to="/ideas"/>
+                      ) : (
+                      <SignIn 
+                    onSignIn={this.onSignIn}
                     onTextboxChangeSignInEmail={this.onTextboxChangeSignInEmail}
                     onTextboxChangeSignInPassword={this.onTextboxChangeSignInPassword}
-                      />}
-                  />
+                      /> )
+                  )}/>
            
 
             <Route

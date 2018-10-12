@@ -32,9 +32,9 @@ render() {
 				   placeholder="Password" 
 				   className="spacing-stack-m"
 				   onChange={this.props.onTextboxChangeSignInPassword}/>
-			<Link onClick={this.props.signIn} to="/ideas" className="button spacing-inline-m">
+			<button onClick={this.props.onSignIn} to="/ideas" className="button spacing-inline-m">
 				Sign in
-			</Link>
+			</button>
 			<Link to="/signup">
 				Sign up
 			</Link>
