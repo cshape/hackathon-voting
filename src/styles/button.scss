@@ -15,3 +15,9 @@
     @include focus;
   }
 }
+
+.button__small {
+  height: $input-height-small;
+  line-height: $input-height-small - 2px;
+  font-size: 13px;
+}
