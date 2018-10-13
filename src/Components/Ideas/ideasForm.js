@@ -87,6 +87,7 @@ class IdeasForm extends React.Component {
                 textStyle="bold"
                 subTextLabel="Designer"
                 backgroundColor="#B264E7"
+                spacing="none"
               >
               </Avatar>
             </Card>
