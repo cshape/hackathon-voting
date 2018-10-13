@@ -78,6 +78,7 @@ class IdeasForm extends React.Component {
                 primaryTextLabel="Geoff Thierman"
                 primaryTextStyle="bold"
                 subTextLabel="Owner"
+                initialsBackgroundColor="#AB34FB"
               >
               </Avatar>
             </Card>

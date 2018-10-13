@@ -7,22 +7,20 @@ class Avatar extends React.Component {
 		this.primaryTextStyle = this.props.primaryTextStyle || 'regular'; //default, bold, link
 		this.primaryTextAction = null; // function
 		this.subTextLabel = this.props.subTextLabel || null; // String
-		this.initial = this.props.initial || "C"; // string
-		this.color = null; // string, hex color
+		this.initials = this.props.initials || "C"; // string
+		this.initialsBackgroundColor = this.props.initialsBackgroundColor || "#2C3D4E"; // string, hex color
 		this.spacing = this.props.spacing || "m"; //string, size from the spacing system
 
 		this.setPrimaryTextStyle = this.setPrimaryTextStyle.bind(this);
 		this.setSpacing = this.setSpacing.bind(this);
 	}
 
-	//
-
 	setPrimaryTextStyle() {
 		const classes = "";
 		if (this.props.primaryTextStyle === "regular") {
 			return;
 		}
-		if(this.props.primaryTextStyle === "bold") {
+		if (this.props.primaryTextStyle === "bold") {
 			return "type-strong"
 		}
 	}
@@ -32,10 +30,15 @@ class Avatar extends React.Component {
 	}
 
 	render() {
+		const style = {
+			initialsBackgroundColor: {
+			    backgroundColor: this.initialsBackgroundColor
+			}
+		};
 		return (
 			<div className={this.setSpacing()}>
-				<div className="avatar-initial">
-					{this.initial}
+				<div className="avatar-initial" style={style.initialsBackgroundColor}>
+					{this.initials}
 				</div>
 				<div className="avatar-info">
 					<div className={this.setPrimaryTextStyle()}>{this.primaryTextLabel}</div>
