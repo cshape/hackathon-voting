@@ -18,6 +18,7 @@ class Card extends React.Component {
 				linkList.push(link)
 			})
 			return linkList;
+
 		}
 	}
 

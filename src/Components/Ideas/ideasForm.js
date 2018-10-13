@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Card from '../UI/Card';
+import Card from '../UI/Card/Card';
 
 class IdeasForm extends React.Component {
   constructor(props) {
@@ -10,7 +10,6 @@ class IdeasForm extends React.Component {
       title: '',
       description: '',
     };
-
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeDescription = this.handleChangeDescription.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,7 +43,7 @@ class IdeasForm extends React.Component {
     return (
       <div className="container">
           <div className="idea-detail-left-column">
-            <Card className="card idea-details-card">
+            <Card>
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text"
