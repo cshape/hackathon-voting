@@ -44,7 +44,7 @@ class IdeasForm extends React.Component {
     return (
       <div className="container">
           <div className="idea-detail-left-column">
-            <Card title ="boom" className="card idea-details-card">
+            <Card className="card idea-details-card">
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text"
