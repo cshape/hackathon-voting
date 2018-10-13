@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Card from '../UI/Card/Card';
+import Avatar from '../UI/Avatar/Avatar';
 
 class IdeasForm extends React.Component {
   constructor(props) {
@@ -71,15 +72,7 @@ class IdeasForm extends React.Component {
           </div>
 					<div className="idea-detail-right-column">
             <Card title="Team" links={[{content: 'Add team members', onAction: this.addTeamMembers}]}>
-              <div className="avatar">
-                <div className="avatar-picture">
-                  C
-                </div>
-                <div className="avatar-info">
-                  <strong>Cale Shapera</strong><br/>
-                  <span className="type-small type-subdued">Owner</span>
-                </div>
-              </div>
+              <Avatar></Avatar>
             </Card>
 					</div>
 				</div>
