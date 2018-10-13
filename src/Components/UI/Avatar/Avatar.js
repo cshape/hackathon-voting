@@ -3,24 +3,24 @@ import React from 'react';
 class Avatar extends React.Component {
 	constructor(props) {
 		super(props);
-		this.primaryTextLabel = this.props.primaryTextLabel || 'Primary text'; // String
-		this.primaryTextStyle = this.props.primaryTextStyle || 'regular'; //default, bold, link
-		this.primaryTextAction = null; // function
+		this.textLabel = this.props.textLabel || 'Primary text'; // String
+		this.textStyle = this.props.textStyle || 'regular'; //default, bold, link
+		this.textAction = null; // function
 		this.subTextLabel = this.props.subTextLabel || null; // String
 		this.initials = this.props.initials || "D"; // string
-		this.initialsBackgroundColor = this.props.initialsBackgroundColor || "#2C3D4E"; // string, hex color
+		this.backgroundColor = this.props.backgroundColor || "#2C3D4E"; // string, hex color
 		this.spacing = this.props.spacing || "m"; //string, size from the spacing system
 
-		this.setPrimaryTextStyle = this.setPrimaryTextStyle.bind(this);
+		this.setTextStyle = this.setTextStyle.bind(this);
 		this.setSpacing = this.setSpacing.bind(this);
 	}
 
-	setPrimaryTextStyle() {
+	setTextStyle() {
 		const classes = "";
-		if (this.props.primaryTextStyle === "regular") {
+		if (this.props.textStyle === "regular") {
 			return;
 		}
-		if (this.props.primaryTextStyle === "bold") {
+		if (this.props.textStyle === "bold") {
 			return "type-strong"
 		}
 	}
@@ -31,17 +31,17 @@ class Avatar extends React.Component {
 
 	render() {
 		const style = {
-			initialsBackgroundColor: {
-			    backgroundColor: this.initialsBackgroundColor
+			backgroundColor: {
+			    backgroundColor: this.backgroundColor
 			}
 		};
 		return (
 			<div className={this.setSpacing()}>
-				<div className="avatar-initial" style={style.initialsBackgroundColor}>
+				<div className="avatar-initial" style={style.backgroundColor}>
 					{this.initials}
 				</div>
 				<div className="avatar-info">
-					<div className={this.setPrimaryTextStyle()}>{this.primaryTextLabel}</div>
+					<div className={this.setTextStyle()}>{this.textLabel}</div>
 					<div className="type-small type-subdued">{this.subTextLabel}</div>
 				</div>
 			</div>

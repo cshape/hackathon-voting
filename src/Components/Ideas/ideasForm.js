@@ -75,18 +75,18 @@ class IdeasForm extends React.Component {
               <Avatar></Avatar>
               <Avatar
                 initials="C"
-                primaryTextLabel="Cale Shapera"
-                primaryTextStyle="bold"
+                textLabel="Cale Shapera"
+                textStyle="bold"
                 subTextLabel="Owner"
-                initialsBackgroundColor="#FBB134"
+                backgroundColor="#FBB134"
               >
               </Avatar>
               <Avatar
                 initials="G"
-                primaryTextLabel="Geoff Thierman"
-                primaryTextStyle="bold"
+                textLabel="Geoff Thierman"
+                textStyle="bold"
                 subTextLabel="Designer"
-                initialsBackgroundColor="#B264E7"
+                backgroundColor="#B264E7"
               >
               </Avatar>
             </Card>
