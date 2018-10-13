@@ -4,11 +4,11 @@
 }
 
 .avatar-info {
-  display: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .avatar-picture {
-  display: 0 0 auto;
+  flex: 0 0 auto;
   width: $avatar-size;
   height: $avatar-size;
   border-radius: $avatar-size/2;

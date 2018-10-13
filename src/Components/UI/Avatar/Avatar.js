@@ -3,18 +3,37 @@ import React from 'react';
 class Avatar extends React.Component {
 	constructor(props) {
 		super(props);
-		this.title = null;
+		this.primaryTextLabel = this.props.primaryTextLabel || 'Primary text'; // String
+		this.primaryTextStyle = this.props.primaryTextStyle || 'regular'; //default, bold, link
+		this.primaryTextAction = null; // function
+		this.subTextLabel = null; // String
+		this.initial = this.props.initial || "C";
+		this.color = null;
+		
+		this.setPrimaryTextStyle = this.setPrimaryTextStyle.bind(this);
+	}
+
+	//
+
+	setPrimaryTextStyle() {
+		const classes = "";
+		if (this.props.primaryTextStyle === "regular") {
+			return;
+		}
+		if(this.props.primaryTextStyle === "bold") {
+			return "type-strong"
+		}
 	}
 
 	render() {
 		return (
 			<div className="avatar">
 				<div className="avatar-picture">
-					C
+					{this.initial}
 				</div>
 				<div className="avatar-info">
-					<strong>Cale Shapera</strong><br/>
-					<span className="type-small type-subdued">Owner</span>
+					<div className={this.setPrimaryTextStyle()}>{this.primaryTextLabel}</div>
+					<div className="type-small type-subdued">{this.subTextLabel}</div>
 				</div>
 			</div>
 		);
