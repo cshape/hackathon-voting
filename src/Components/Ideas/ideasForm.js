@@ -73,7 +73,13 @@ class IdeasForm extends React.Component {
 					<div className="idea-detail-right-column">
             <Card title="Team" links={[{content: 'Add team members', onAction: this.addTeamMembers}]}>
               <Avatar></Avatar>
-              <Avatar primaryTextStyle="bold"></Avatar>
+              <Avatar
+                initial="G"
+                primaryTextLabel="Geoff Thierman"
+                primaryTextStyle="bold"
+                subTextLabel="Owner"
+              >
+              </Avatar>
             </Card>
 					</div>
 				</div>

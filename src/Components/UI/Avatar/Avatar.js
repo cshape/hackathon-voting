@@ -6,11 +6,13 @@ class Avatar extends React.Component {
 		this.primaryTextLabel = this.props.primaryTextLabel || 'Primary text'; // String
 		this.primaryTextStyle = this.props.primaryTextStyle || 'regular'; //default, bold, link
 		this.primaryTextAction = null; // function
-		this.subTextLabel = null; // String
-		this.initial = this.props.initial || "C";
-		this.color = null;
-		
+		this.subTextLabel = this.props.subTextLabel || null; // String
+		this.initial = this.props.initial || "C"; // string
+		this.color = null; // string, hex color
+		this.spacing = this.props.spacing || "m"; //string, size from the spacing system
+
 		this.setPrimaryTextStyle = this.setPrimaryTextStyle.bind(this);
+		this.setSpacing = this.setSpacing.bind(this);
 	}
 
 	//
@@ -25,10 +27,14 @@ class Avatar extends React.Component {
 		}
 	}
 
+	setSpacing() {
+		return "avatar spacing-stack-" + this.spacing;
+	}
+
 	render() {
 		return (
-			<div className="avatar">
-				<div className="avatar-picture">
+			<div className={this.setSpacing()}>
+				<div className="avatar-initial">
 					{this.initial}
 				</div>
 				<div className="avatar-info">
