@@ -74,11 +74,19 @@ class IdeasForm extends React.Component {
             <Card title="Team" links={[{content: 'Add team members', onAction: this.addTeamMembers}]}>
               <Avatar></Avatar>
               <Avatar
-                initial="G"
-                primaryTextLabel="Geoff Thierman"
+                initials="C"
+                primaryTextLabel="Cale Shapera"
                 primaryTextStyle="bold"
                 subTextLabel="Owner"
-                initialsBackgroundColor="#AB34FB"
+                initialsBackgroundColor="#FBB134"
+              >
+              </Avatar>
+              <Avatar
+                initials="G"
+                primaryTextLabel="Geoff Thierman"
+                primaryTextStyle="bold"
+                subTextLabel="Designer"
+                initialsBackgroundColor="#B264E7"
               >
               </Avatar>
             </Card>

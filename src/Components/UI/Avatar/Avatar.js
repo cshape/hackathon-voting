@@ -7,7 +7,7 @@ class Avatar extends React.Component {
 		this.primaryTextStyle = this.props.primaryTextStyle || 'regular'; //default, bold, link
 		this.primaryTextAction = null; // function
 		this.subTextLabel = this.props.subTextLabel || null; // String
-		this.initials = this.props.initials || "C"; // string
+		this.initials = this.props.initials || "D"; // string
 		this.initialsBackgroundColor = this.props.initialsBackgroundColor || "#2C3D4E"; // string, hex color
 		this.spacing = this.props.spacing || "m"; //string, size from the spacing system
 
