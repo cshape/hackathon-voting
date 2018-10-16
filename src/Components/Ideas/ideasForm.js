@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Card from '../UI/Card/Card';
 
 class IdeasForm extends React.Component {
   constructor(props) {
@@ -9,10 +10,10 @@ class IdeasForm extends React.Component {
       title: '',
       description: '',
     };
-
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeDescription = this.handleChangeDescription.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addTeamMembers = this.addTeamMembers.bind(this);
   }
 
   handleChangeTitle(event) {
@@ -34,11 +35,15 @@ class IdeasForm extends React.Component {
     })
   }
 
+  addTeamMembers() {
+    alert('Add code to execute when this link is clicked to the addTeamMembers function');
+  }
+
   render() {
     return (
       <div className="container">
           <div className="idea-detail-left-column">
-            <div className="card idea-details-card">
+            <Card>
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text"
@@ -62,24 +67,20 @@ class IdeasForm extends React.Component {
                   Cancel
                 </Link>
               </form>
-            </div>
+            </Card>
           </div>
 					<div className="idea-detail-right-column">
-						<div className="card team-card">
-							<div className="card-title">
-								<h1>Team</h1>
-								<a>Add team members</a>
-							</div>
-							<div className="avatar">
-								<div className="avatar-picture">
-									C
-								</div>
-								<div className="avatar-info">
-									<strong>Cale Shapera</strong><br/>
-									<span className="type-small type-subdued">Owner</span>
-								</div>
-							</div>
-						</div>
+            <Card title="Team" links={[{content: 'Add team members', onAction: this.addTeamMembers}]}>
+              <div className="avatar">
+                <div className="avatar-picture">
+                  C
+                </div>
+                <div className="avatar-info">
+                  <strong>Cale Shapera</strong><br/>
+                  <span className="type-small type-subdued">Owner</span>
+                </div>
+              </div>
+            </Card>
 					</div>
 				</div>
     );
