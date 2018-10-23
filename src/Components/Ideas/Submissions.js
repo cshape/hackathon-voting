@@ -16,7 +16,6 @@ class Submissions extends React.Component {
 
 
   deleteIdea(id, event) {
-    debugger
   	let button = event.target;
   	let idKey = button.id;
     let url = `http://localhost:3001/api/idea/${id}`

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Card from '../UI/Card/Card';
 import Avatar from '../UI/Avatar/Avatar';
+import { withRouter } from 'react-router'
 
 class IdeasForm extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class IdeasForm extends React.Component {
       description: this.state.description
     }).then(response => {
       console.log(response, 'idea noted!');
+      this.props.history.push(`/ideasShow/${response.data._id}`);
     })
   }
 
@@ -61,9 +63,9 @@ class IdeasForm extends React.Component {
                   onChange={this.handleChangeDescription}
                 >
                 </textarea>
-                <Link to="/ideas" className="button spacing-inline-m" onClick={this.handleSubmit}>
+                <div className="button spacing-inline-m" onClick={this.handleSubmit}>
                   Save idea
-                </Link>
+                </div>
                 <Link to="/ideas">
                   Cancel
                 </Link>
@@ -97,4 +99,4 @@ class IdeasForm extends React.Component {
   }
 }
 
-export default IdeasForm;
+export default withRouter(IdeasForm);
