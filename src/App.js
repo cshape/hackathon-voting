@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import Config from './config.json';
 import Ideas from './Components/Ideas/Ideas';
 import SignIn from './Components/SignIn/Signin';
 import SignUp from './Components/SignIn/SignUp';
 import axios from 'axios';
+import { GoogleLogin } from 'react-google-login';
 
 import { Route, Redirect, NavLink, BrowserRouter, Link } from 'react-router-dom';
 
@@ -19,17 +21,11 @@ class App extends Component {
       this.state = {
         route: 'signin',
         user: {},
-        signedIn: false,
-        isLoading: false,
-        signInError: '',
-        signInEmail: '',
-        signInPassword: '',
-        signUpEmail: '',
-        signUpPassword: '',
-        firstname: '',
-        lastname: ''
+        isAuthenticated: false,
+        user: null, 
+        token: ''
         }
-    this.signOut = this.signOut.bind(this);
+    this.logout = this.logout.bind(this);
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
@@ -37,6 +33,38 @@ class App extends Component {
     this.onSignUp = this.onSignUp.bind(this);
     this.onSignIn = this.onSignIn.bind(this);
   }
+
+  logout = () => {
+    this.setState({isAuthenticated: false, token: '', user: null})
+  };
+
+googleResponse = (response) => {
+        // const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
+        const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              access_token: response.accessToken
+            }),
+            mode: 'cors',
+            cache: 'default'
+        };
+        fetch('http://localhost:3001/api/google', options).then(r => {
+            const token = r.headers.get('x-auth-token');
+            r.json().then(user => {
+                console.log("user email:", user.email);
+                if (token) {
+                    this.setState({isAuthenticated: true, user, token})
+                }
+            });
+        })
+    };
+
+  onFailure = (error) => {
+      alert(error);
+    }
 
     componentDidMount() {
    this.setState({
@@ -86,8 +114,8 @@ onSignIn() {
 
 
     // Post request to backend
-    fetch('https://mighty-springs-20769.herokuapp.com/api/users/signin', {
-      method: 'POST',
+    fetch('http://localhost:3001/api/google', {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -154,8 +182,6 @@ onSignIn() {
         this.setState({lastname: ''});
       }
 
-
-
   render() {
     return (
       <BrowserRouter basename="/hackathon-voting">
@@ -164,10 +190,10 @@ onSignIn() {
             <h1><Link to="/ideas">Clio Hackathon Forum</Link></h1>
             <div className="cond-button">
 
-              { //Check if message failed
-                (this.state.signedIn == false)
-                  ? <div><Link to="/ideasForm" className="button">New Idea</Link></div>
-                  : <div><Link onClick={this.signOut} to="/">Sign Out</Link></div>
+              { 
+                (this.state.isAuthenticated == true)
+                  ? <div><Link to="/ideasForm" className="button">New Idea as:{this.state.user.email}</Link></div>
+                  : <div><Link to="/ideasForm" className="button">New Idea (but I'm not authd)</Link></div>
               }
 
             </div>
@@ -175,25 +201,26 @@ onSignIn() {
           <div className="app-body">
             <Route  exact path="/" 
                     render={(props) => (
-                    this.state.signedIn === true ? (  
+                    this.state.isAuthenticated === true ? (  
                       <Redirect to="/ideas"/>
                       ) : (
-                      <SignIn 
-                    onSignIn={this.onSignIn}
-                    onTextboxChangeSignInEmail={this.onTextboxChangeSignInEmail}
-                    onTextboxChangeSignInPassword={this.onTextboxChangeSignInPassword}
-                      /> )
+                      <GoogleLogin
+                        clientId={Config.GOOGLE_CLIENT_ID}
+                        buttonText="Mufukin Google Login"
+                        onSuccess={this.googleResponse}
+                        onFailure={this.googleResponse}
+                    />)
                   )}/>
            
 
-            <Route
+         {/*   <Route
               path='/signup'
               render={(props) => <SignUp 
                 onSignUp={this.onSignUp} 
                 onTextboxChangeSignUpEmail={this.onTextboxChangeSignUpEmail}
                 onTextboxChangeSignUpPassword={this.onTextboxChangeSignUpPassword}
                 />}
-            />
+            />*/}
 
 
             <Route path="/ideas" component={Ideas}/>

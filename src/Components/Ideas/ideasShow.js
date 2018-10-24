@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Card from '../UI/Card/Card';
 import Avatar from '../UI/Avatar/Avatar';
+import Parser from 'html-react-parser';
 
 class IdeasShow extends React.Component {
   result = ''
@@ -36,7 +37,7 @@ class IdeasShow extends React.Component {
                 {this.state.name}
               </div>
               <div className="idea-details-description-input">
-                {this.state.description}
+                {Parser(`${this.state.description}`)}
               </div>
             </Card>
           </div>

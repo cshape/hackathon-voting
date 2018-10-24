@@ -3,7 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Card from '../UI/Card/Card';
 import Avatar from '../UI/Avatar/Avatar';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 class IdeasForm extends React.Component {
   constructor(props) {
@@ -22,8 +24,8 @@ class IdeasForm extends React.Component {
     this.setState({title: event.target.value});
   }
 
-  handleChangeDescription(event) {
-    this.setState({description: event.target.value});
+  handleChangeDescription(value) {
+    this.setState({ description: value });
   }
 
 	handleSubmit(event) {
@@ -56,13 +58,16 @@ class IdeasForm extends React.Component {
                   value= {this.state.title}
                   onChange={this.handleChangeTitle}
                 />
-                <textarea
+                <ReactQuill
                   placeholder="Describe your idea"
                   className="idea-details-description-input"
                   value={this.state.description}
                   onChange={this.handleChangeDescription}
                 >
-                </textarea>
+                </ReactQuill>
+                <br />
+                <br />
+                <br />
                 <div className="button spacing-inline-m" onClick={this.handleSubmit}>
                   Save idea
                 </div>
