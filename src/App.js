@@ -39,7 +39,6 @@ class App extends Component {
   };
 
 googleResponse = (response) => {
-        // const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
         const options = {
             method: 'POST',
             headers: {
@@ -57,6 +56,7 @@ googleResponse = (response) => {
                 console.log("user email:", user.email);
                 if (token) {
                     this.setState({isAuthenticated: true, user, token})
+                    console.log(user);
                 }
             });
         })
@@ -192,7 +192,7 @@ onSignIn() {
 
               { 
                 (this.state.isAuthenticated == true)
-                  ? <div><Link to="/ideasForm" className="button">New Idea as:{this.state.user.email}</Link></div>
+                  ? <div><Link to="/ideasForm" className="button">New Idea as: {this.state.user.fullName}</Link></div>
                   : <div><Link to="/ideasForm" className="button">New Idea (but I'm not authd)</Link></div>
               }
 
