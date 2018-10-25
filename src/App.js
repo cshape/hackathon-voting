@@ -7,9 +7,10 @@ import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
 
 import { Route, Redirect, NavLink, BrowserRouter, Link } from 'react-router-dom';
+import { browserHistory, withRouter } from 'react-router';
 
-import ideasForm from './Components/Ideas/ideasForm';
-import ideasShow from './Components/Ideas/ideasShow';
+import IdeasForm from './Components/Ideas/ideasForm';
+import IdeasShow from './Components/Ideas/ideasShow';
 
 
 import './App.scss';
@@ -32,11 +33,19 @@ class App extends Component {
     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
     this.onSignIn = this.onSignIn.bind(this);
+    this.requireAuth = this.requireAuth.bind(this);
   }
 
   logout = () => {
-    this.setState({isAuthenticated: false, token: '', user: null})
+    this.setState({isAuthenticated: false, token: '', user: null});
   };
+
+  requireAuth = (nextState, replace) => {
+    if (!this.state.isAuthenticated == true()) {
+        replace({ pathname: '/' });
+        console.log("you can't enter, bitch")
+    }
+};
 
 googleResponse = (response) => {
         const options = {
@@ -192,7 +201,8 @@ onSignIn() {
 
               { 
                 (this.state.isAuthenticated == true)
-                  ? <div><Link to="/ideasForm" className="button">New Idea as: {this.state.user.fullName}</Link></div>
+                  ? <div><div><Link to="/ideasForm" className="button">New Idea as: {this.state.user.fullName}</Link></div>
+                    <div onClick={this.logout} className="button">Log out</div></div>
                   : <div><Link to="/ideasForm" className="button">New Idea (but I'm not authd)</Link></div>
               }
 
@@ -222,10 +232,30 @@ onSignIn() {
                 />}
             />*/}
 
+            <Route  path="/ideas" 
+                    render={(props) => (
+                    this.state.isAuthenticated === false ? (  
+                      <Redirect to="/"/>
+                      ) : (
+                      <Ideas />)
+                  )}/>
 
-            <Route path="/ideas" component={Ideas}/>
-            <Route path="/ideasShow/:id" component={ideasShow}/>
-            <Route path="/ideasForm" component={ideasForm}/>
+            <Route  path="/ideasShow/:id" 
+                    render={(props) => (
+                    this.state.isAuthenticated === false ? (  
+                      <Redirect to="/"/>
+                      ) : (
+                      <IdeasShow />)
+                  )}/>
+
+            <Route  path="/ideasForm" 
+                    render={(props) => (
+                    this.state.isAuthenticated === false ? (  
+                      <Redirect to="/"/>
+                      ) : (
+                      <IdeasForm />)
+                  )}/>
+
           </div>
         </div>
         </BrowserRouter>
