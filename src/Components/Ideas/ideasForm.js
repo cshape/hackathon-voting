@@ -36,7 +36,7 @@ class IdeasForm extends React.Component {
       description: this.state.description
     }).then(response => {
       console.log(response, 'idea noted!');
-      this.props.history.push(`/ideasShow/${response.data._id}`);
+      this.props.history.push('/Ideas');
     })
   }
 

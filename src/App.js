@@ -241,11 +241,11 @@ onSignIn() {
                   )}/>
 
             <Route  path="/ideasShow/:id" 
-                    render={(props) => (
+                    render={({ props, match }) => (
                     this.state.isAuthenticated === false ? (  
                       <Redirect to="/"/>
                       ) : (
-                      <IdeasShow />)
+                      <IdeasShow match={match} />)
                   )}/>
 
             <Route  path="/ideasForm" 
