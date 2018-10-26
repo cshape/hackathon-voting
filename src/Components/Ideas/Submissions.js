@@ -11,7 +11,6 @@ class Submissions extends React.Component {
     		}
 	  this.deleteIdea = this.deleteIdea.bind(this);
 
-
    	}
 
 
@@ -32,6 +31,8 @@ class Submissions extends React.Component {
   	}))
   }
 
+
+
   componentDidMount() {
 
   			fetch('http://localhost:3001/api/ideas')
@@ -40,6 +41,7 @@ class Submissions extends React.Component {
   			}).then(data => {
   				let submissions = data.map((idea, i) => {
            let path = "/ideasShow/" + idea._id;
+           let editPath = "/ideasEdit/" + idea._id;
            let ideaId = idea._id
   	        return(
 
@@ -64,6 +66,7 @@ class Submissions extends React.Component {
   									</div>
   								</td>
   								<td><button onClick={this.deleteIdea.bind(this,ideaId)} id={i} className="button button__small">Delete</button></td>
+                  <td><Link to={editPath}><button className="button button__small">Edit</button></Link></td>
   	          	</tr>
 
             )

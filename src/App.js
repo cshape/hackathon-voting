@@ -11,6 +11,7 @@ import { browserHistory, withRouter } from 'react-router';
 
 import IdeasForm from './Components/Ideas/ideasForm';
 import IdeasShow from './Components/Ideas/ideasShow';
+import IdeasEdit from './Components/Ideas/ideasEdit';
 
 
 import './App.scss';
@@ -240,6 +241,15 @@ onSignIn() {
                       ) : (
                       <IdeasShow match={match} />)
                   )}/>
+
+            <Route  path="/ideasEdit/:id" 
+                    render={({ props, match }) => (
+                    this.state.isAuthenticated === false ? (  
+                      <Redirect to="/"/>
+                      ) : (
+                      <IdeasEdit match={match} />)
+                  )}/>
+
 
             <Route  path="/ideasForm" 
                     render={(props) => (

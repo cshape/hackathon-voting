@@ -1,7 +1,9 @@
 import React from 'react';
 import '../../App.css';
 
-class SubmittedIdeas extends React.Component { 		
+class SubmittedIdeas extends React.Component { 	
+
+
     render() {
     	return (
         	<div>
