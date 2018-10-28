@@ -13,6 +13,9 @@ class IdeasForm extends React.Component {
 		this.state = {
       title: '',
       description: '',
+      leader: '',
+      members: [],
+      comments: []
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeDescription = this.handleChangeDescription.bind(this);
@@ -33,7 +36,8 @@ class IdeasForm extends React.Component {
     axios.post('http://localhost:3001/api/ideas', {
       name: this.state.title,
       leader: this.state.leader,
-      description: this.state.description
+      description: this.state.description,
+      members: this.state.members
     }).then(response => {
       console.log(response, 'idea noted!');
       this.props.history.push('/Ideas');

@@ -39,6 +39,8 @@ class App extends Component {
     this.setState({isAuthenticated: false, token: '', user: null});
   };
 
+
+
 googleResponse = (response) => {
         const options = {
             method: 'POST',
@@ -186,6 +188,9 @@ onSignIn() {
       }
 
   render() {
+
+    let loggedinuser = this.state.user;
+
     return (
       <BrowserRouter basename="/hackathon-voting">
       <div className="App">
@@ -239,7 +244,7 @@ onSignIn() {
                     this.state.isAuthenticated === false ? (  
                       <Redirect to="/"/>
                       ) : (
-                      <IdeasShow match={match} />)
+                      <IdeasShow user={loggedinuser} match={match} />)
                   )}/>
 
             <Route  path="/ideasEdit/:id" 
