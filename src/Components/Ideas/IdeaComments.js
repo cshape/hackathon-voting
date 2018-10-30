@@ -10,10 +10,7 @@ class IdeaComments extends React.Component {
 		this.id = this.props.id;
 	}	
 
-
-
-componentDidMount() {
-
+		componentDidMount(prevProps) {
 
 			fetch('http://localhost:3001/api/idea/'+ this.id)
   			 .then(response => response.json())
@@ -28,39 +25,30 @@ componentDidMount() {
 		  	        </div>
   	          	)
   	          })
+  			console.log(prevProps);
   			console.log(thecomments);
   			this.setState({ comments: thecomments })
   			})
-  			
   		}
 
-  	// 	componentDidUpdate() {
-
-
-			// fetch('http://localhost:3001/api/idea/'+ this.id)
-  	// 		 .then(response => response.json())
-		 //      .then(data => {
-		 //      	let onlycomments = data.comments;
-  	// 			let thecomments = onlycomments.map((comment, i) => {
-	  //          let commentId = comment._id
-	  // 	        return(
-	  // 	        	<div className="legitcomments" key={i} id={commentId}>
-		 //  	        	<h4>{comment.author}</h4>
-		 //  	        	{Parser(`${comment.text}`)}
-		 //  	        </div>
-  	//           	)
-  	//           })
-  	// 		console.log(thecomments);
-  	// 		this.setState({ comments: thecomments })
-  	// 		})
-  			
-  	// 	}
+  		componentDidUpdate(prevProps) {
+  			if (prevProps.comments !== this.props.comments) {
+  				let thecomments = this.props.comments.map((comment, i) => {
+  					return(
+  						<div className="legitcomments" key={i} id={comment._id}>
+  							<h4>{comment.author}</h4>
+  							{Parser(`${comment.text}`)}
+  						</div>
+  					)
+  				})
+  				this.setState({ comments: thecomments })
+  			}
+  		}
 
     render() {
     	return (
         	<div>
         		<div className="ideacomments">
-        		<h1>what the hell</h1>
           			<div className="commentlist">
           				{this.state.comments}
           			</div>

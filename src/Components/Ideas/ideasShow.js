@@ -56,6 +56,7 @@ handleSubmit(event) {
       console.log(response, 'comment added');
       this.setState({ currentcomment: ''})
       console.log(this.state.comments);
+      this.forceUpdate();
     });
   });
 
@@ -75,8 +76,9 @@ handleSubmit(event) {
         description: data.description,
         members: data.members,
         comments: data.comments
-       }));
-      console.log(this.state);
+       }, () => {
+        console.log(this.state);
+       })); 
   }
 
   commentSubmit() {
@@ -85,7 +87,6 @@ handleSubmit(event) {
 
 
   render() {
-    let comments = this.state.comments;
     return (
       
       <div className="container">
@@ -124,7 +125,8 @@ handleSubmit(event) {
           </div>
             <div className="idea-detail-right-column">
             <Card title="Comments">
-              <IdeaComments id={this.id} comments={comments} />
+             <IdeaComments id={this.id} comments={this.state.comments} />
+          
              
               <ReactQuill
                   placeholder="Add a comment"
