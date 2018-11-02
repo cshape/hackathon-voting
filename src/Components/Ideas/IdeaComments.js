@@ -10,26 +10,21 @@ class IdeaComments extends React.Component {
 		this.id = this.props.id;
 	}	
 
-		componentDidMount(prevProps) {
+//set the comments from the ideasShow component as the state
 
-			fetch('http://localhost:3001/api/idea/'+ this.id)
-  			 .then(response => response.json())
-		      .then(data => {
-		      	let onlycomments = data.comments;
-  				let thecomments = onlycomments.map((comment, i) => {
-	           let commentId = comment._id
-	  	        return(
-	  	        	<div className="legitcomments" key={i} id={commentId}>
-		  	        	<h4>{comment.author}</h4>
-		  	        	{Parser(`${comment.text}`)}
-		  	        </div>
-  	          	)
-  	          })
-  			console.log(prevProps);
-  			console.log(thecomments);
-  			this.setState({ comments: thecomments })
-  			})
-  		}
+		componentDidMount(prevProps) {
+			let thecomments = this.props.comments.map((comment, i) => {
+  					return(
+  						<div className="legitcomments" key={i} id={comment._id}>
+  							<h4>{comment.author}</h4>
+  							{Parser(`${comment.text}`)}
+  						</div>
+  					)
+  				})
+  				this.setState({ comments: thecomments })
+  			}
+
+//on update, check if the comment state in ideasShow has changed. if so, update the comments
 
   		componentDidUpdate(prevProps) {
   			if (prevProps.comments !== this.props.comments) {
@@ -44,6 +39,8 @@ class IdeaComments extends React.Component {
   				this.setState({ comments: thecomments })
   			}
   		}
+
+//display the comments
 
     render() {
     	return (

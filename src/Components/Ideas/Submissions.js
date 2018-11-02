@@ -48,7 +48,7 @@ class Submissions extends React.Component {
   	          	<tr className="ideaSubmission" key={i} id={idea.id}>
   								<td>
                     <Link to={path}>
-                      <a>{idea.name}</a>
+                      <p>{idea.name}</p>
                     </Link><br/>
   									<span class="type-subdued type-small">Owned by {idea.leader}</span>
   								</td>

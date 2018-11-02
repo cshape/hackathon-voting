@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Card from '../UI/Card/Card';
 import Avatar from '../UI/Avatar/Avatar';
-import Parser from 'html-react-parser';
 import { withRouter } from 'react-router';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import Config from './config.json';
 import Ideas from './Components/Ideas/Ideas';
-import SignIn from './Components/SignIn/Signin';
-import SignUp from './Components/SignIn/SignUp';
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
 
-import { Route, Redirect, NavLink, BrowserRouter, Link } from 'react-router-dom';
-import { browserHistory, withRouter } from 'react-router';
+import { Route, Redirect, BrowserRouter, Link } from 'react-router-dom';
 
 import IdeasForm from './Components/Ideas/ideasForm';
 import IdeasShow from './Components/Ideas/ideasShow';
@@ -199,7 +196,7 @@ onSignIn() {
             <div className="cond-button">
 
               { 
-                (this.state.isAuthenticated == true)
+                (this.state.isAuthenticated === true)
                   ? <div><div><Link to="/ideasForm" className="button">New Idea as: {this.state.user.fullName}</Link></div>
                     <div onClick={this.logout} className="button">Log out</div></div>
                   : <div></div>
