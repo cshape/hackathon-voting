@@ -197,7 +197,7 @@ onSignIn() {
 
               { 
                 (this.state.isAuthenticated === true)
-                  ? <div><div><Link to="/ideasForm" className="button">New Idea as: {this.state.user.fullName}</Link></div>
+                  ? <div className="button-row"><div><Link to="/ideasForm" className="button">New Idea</Link></div>
                     <div onClick={this.logout} className="button">Log out</div></div>
                   : <div></div>
               }

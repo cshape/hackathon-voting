@@ -29,6 +29,9 @@ body {
 }
 
 .app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 0 spacing(l);
@@ -42,6 +45,19 @@ body {
   .button {
     margin-left: spacing(m);
   }
+}
+
+.app-body {
+  margin-top: 60px;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  margin: 5px;
 }
 .app-body {
   padding: spacing(l);

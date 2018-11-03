@@ -72,12 +72,14 @@ class IdeasForm extends React.Component {
                 <br />
                 <br />
                 <br />
-                <div className="button spacing-inline-m" onClick={this.handleSubmit}>
-                  Save idea
+                <div className="button-row"> 
+                  <div className="button" onClick={this.handleSubmit}>
+                    Save idea
+                  </div>
+                  <Link className="button" to="/ideas">
+                    Cancel
+                  </Link>
                 </div>
-                <Link to="/ideas">
-                  Cancel
-                </Link>
               </form>
             </Card>
           </div>

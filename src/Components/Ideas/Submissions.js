@@ -13,6 +13,9 @@ class Submissions extends React.Component {
 
    	}
 
+// send a DELETE http request to the api to delete the idea with the matching id
+// then set the state by to a filtered array of all submissions except the one with the matching id
+
 
   deleteIdea(id, event) {
   	let button = event.target;
@@ -65,8 +68,8 @@ class Submissions extends React.Component {
   										</div>
   									</div>
   								</td>
-  								<td><button onClick={this.deleteIdea.bind(this,ideaId)} id={i} className="button button__small">Delete</button></td>
-                  <td><Link to={editPath}><button className="button button__small">Edit</button></Link></td>
+  								<td><button onClick={this.deleteIdea.bind(this,ideaId)} id={i} className="button button__small">Delete</button>
+                  <Link to={editPath}><button className="button button__small">Edit</button></Link></td>
   	          	</tr>
 
             )
