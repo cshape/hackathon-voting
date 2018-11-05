@@ -21,3 +21,21 @@
   line-height: $input-height-small - 2px;
   font-size: 13px;
 }
+
+.googlebutton {
+  border: 1px solid color(blue-clio);
+  border-radius: 4px;
+  padding: 0 spacing(l);
+  height: 80px;
+  line-height: $input-height - 2;
+  font-family: $font-family;
+  font-weight: type-weight(regular);
+  color: color(white);
+  background: color(blue-clio);
+  align-items: center;
+  font-size: 32px;
+  cursor: pointer;
+  &:focus {
+    @include focus;
+  }
+}

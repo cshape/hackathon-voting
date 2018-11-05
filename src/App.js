@@ -9,6 +9,7 @@ import { Route, Redirect, BrowserRouter, Link } from 'react-router-dom';
 import IdeasForm from './Components/Ideas/ideasForm';
 import IdeasShow from './Components/Ideas/ideasShow';
 import IdeasEdit from './Components/Ideas/ideasEdit';
+import ScrollToTop from './Components/UI/ScrollToTop';
 
 
 import './App.scss';
@@ -190,79 +191,87 @@ onSignIn() {
 
     return (
       <BrowserRouter basename="/hackathon-voting">
-      <div className="App">
-          <header className="app-header">
-            <h1><Link to="/ideas">Clio Hackathon Forum</Link></h1>
-            <div className="cond-button">
+        <ScrollToTop>
+          <div className="App">
+              <header className="app-header">
+                <h1><Link to="/ideas">Clio Hackathon Forum</Link></h1>
+                <div className="cond-button">
 
-              { 
-                (this.state.isAuthenticated === true)
-                  ? <div className="button-row"><div><Link to="/ideasForm" className="button">New Idea</Link></div>
-                    <div onClick={this.logout} className="button">Log out</div></div>
-                  : <div></div>
-              }
+                  { 
+                    (this.state.isAuthenticated === true)
+                      ? <div className="button-row"><div><Link to="/ideasForm" className="button">New Idea</Link></div>
+                        <div onClick={this.logout} className="button">Log out</div></div>
+                      : <div></div>
+                  }
 
+                </div>
+              </header>
+              <div className="app-body">
+                <Route  exact path="/" 
+                        render={(props) => (
+                        this.state.isAuthenticated === true ? (  
+                          <Redirect to="/ideas"/>
+                          ) : (
+                          <div className="googsloginpage">
+                            <GoogleLogin
+                            clientId={Config.GOOGLE_CLIENT_ID}
+                            render={renderProps => (
+                                <button className="googlebutton"
+                                        onClick={renderProps.onClick}>Sign In with Google</button>
+                              )}
+                            buttonText="Mufukin Google Login"
+                            onSuccess={this.googleResponse}
+                            onFailure={this.googleResponse}
+                          />
+                        </div>)
+                      )}/>
+               
+
+             {/*   <Route
+                  path='/signup'
+                  render={(props) => <SignUp 
+                    onSignUp={this.onSignUp} 
+                    onTextboxChangeSignUpEmail={this.onTextboxChangeSignUpEmail}
+                    onTextboxChangeSignUpPassword={this.onTextboxChangeSignUpPassword}
+                    />}
+                />*/}
+
+                <Route  path="/ideas" 
+                        render={(props) => (
+                        this.state.isAuthenticated === false ? (  
+                          <Redirect to="/"/>
+                          ) : (
+                          <Ideas />)
+                      )}/>
+
+                <Route  path="/ideasShow/:id" 
+                        render={({ props, match }) => (
+                        this.state.isAuthenticated === false ? (  
+                          <Redirect to="/"/>
+                          ) : (
+                          <IdeasShow user={loggedinuser} match={match} />)
+                      )}/>
+
+                <Route  path="/ideasEdit/:id" 
+                        render={({ props, match }) => (
+                        this.state.isAuthenticated === false ? (  
+                          <Redirect to="/"/>
+                          ) : (
+                          <IdeasEdit match={match} />)
+                      )}/>
+
+
+                <Route  path="/ideasForm" 
+                        render={(props) => (
+                        this.state.isAuthenticated === false ? (  
+                          <Redirect to="/"/>
+                          ) : (
+                          <IdeasForm user={loggedinuser} />)
+                      )}/>
+
+              </div>
             </div>
-          </header>
-          <div className="app-body">
-            <Route  exact path="/" 
-                    render={(props) => (
-                    this.state.isAuthenticated === true ? (  
-                      <Redirect to="/ideas"/>
-                      ) : (
-                      <GoogleLogin
-                        clientId={Config.GOOGLE_CLIENT_ID}
-                        buttonText="Mufukin Google Login"
-                        onSuccess={this.googleResponse}
-                        onFailure={this.googleResponse}
-                    />)
-                  )}/>
-           
-
-         {/*   <Route
-              path='/signup'
-              render={(props) => <SignUp 
-                onSignUp={this.onSignUp} 
-                onTextboxChangeSignUpEmail={this.onTextboxChangeSignUpEmail}
-                onTextboxChangeSignUpPassword={this.onTextboxChangeSignUpPassword}
-                />}
-            />*/}
-
-            <Route  path="/ideas" 
-                    render={(props) => (
-                    this.state.isAuthenticated === false ? (  
-                      <Redirect to="/"/>
-                      ) : (
-                      <Ideas />)
-                  )}/>
-
-            <Route  path="/ideasShow/:id" 
-                    render={({ props, match }) => (
-                    this.state.isAuthenticated === false ? (  
-                      <Redirect to="/"/>
-                      ) : (
-                      <IdeasShow user={loggedinuser} match={match} />)
-                  )}/>
-
-            <Route  path="/ideasEdit/:id" 
-                    render={({ props, match }) => (
-                    this.state.isAuthenticated === false ? (  
-                      <Redirect to="/"/>
-                      ) : (
-                      <IdeasEdit match={match} />)
-                  )}/>
-
-
-            <Route  path="/ideasForm" 
-                    render={(props) => (
-                    this.state.isAuthenticated === false ? (  
-                      <Redirect to="/"/>
-                      ) : (
-                      <IdeasForm user={loggedinuser} />)
-                  )}/>
-
-          </div>
-        </div>
+          </ScrollToTop>
         </BrowserRouter>
     );
   }
