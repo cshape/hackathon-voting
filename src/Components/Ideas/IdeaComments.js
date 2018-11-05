@@ -1,5 +1,8 @@
 import React from 'react';
 import Parser from 'html-react-parser';
+import ta from 'time-ago';
+
+// var ta = require('./time-ago.js')
 
 class IdeaComments extends React.Component { 
 	constructor(props) {
@@ -16,8 +19,13 @@ class IdeaComments extends React.Component {
 			let thecomments = this.props.comments.map((comment, i) => {
   					return(
   						<div className="legitcomments" key={i} id={comment._id}>
-  							<h4>{comment.author}</h4>
-  							{Parser(`${comment.text}`)}
+  							<div className="comment-header">
+                  <p>{comment.author}</p>
+                  <p>{ta.ago(comment.date)}</p>
+                </div>
+  							<div className="comment-body">
+                  {Parser(`${comment.text}`)}
+                </div>
   						</div>
   					)
   				})
@@ -31,9 +39,14 @@ class IdeaComments extends React.Component {
   				let thecomments = this.props.comments.map((comment, i) => {
   					return(
   						<div className="legitcomments" key={i} id={comment._id}>
-  							<h4>{comment.author}</h4>
-  							{Parser(`${comment.text}`)}
-  						</div>
+                <div className="comment-header">
+                  <p>{comment.author}</p>
+                  <p>{ta.ago(comment.date)}</p>
+                </div>
+                <div className="comment-body">
+                  {Parser(`${comment.text}`)}
+                </div>
+              </div>
   					)
   				})
   				this.setState({ comments: thecomments })

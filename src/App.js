@@ -258,7 +258,7 @@ onSignIn() {
                     this.state.isAuthenticated === false ? (  
                       <Redirect to="/"/>
                       ) : (
-                      <IdeasForm />)
+                      <IdeasForm user={loggedinuser} />)
                   )}/>
 
           </div>

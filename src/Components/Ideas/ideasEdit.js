@@ -14,6 +14,8 @@ class IdeasEdit extends React.Component {
 		this.state = {
       name: '',
       description: '',
+      leader: '',
+      members: []
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeDescription = this.handleChangeDescription.bind(this);
@@ -70,7 +72,10 @@ handleChangeDescription(value) {
   }
 
   addTeamMembers() {
-    alert('Add code to execute when this link is clicked to the addTeamMembers function');
+    var newMember = prompt("Enter the name of the new team member");
+    var newRole = prompt("What will their role be?");
+    console.log(newMember);
+    console.log(newRole);
   }
 
   render() {

@@ -35,7 +35,7 @@ class IdeasForm extends React.Component {
     event.preventDefault();
     axios.post('http://localhost:3001/api/ideas', {
       name: this.state.title,
-      leader: this.state.leader,
+      leader: this.props.user.fullName,
       description: this.state.description,
       members: this.state.members
     }).then(response => {
@@ -44,8 +44,11 @@ class IdeasForm extends React.Component {
     })
   }
 
-  addTeamMembers() {
-    alert('Add code to execute when this link is clicked to the addTeamMembers function');
+   addTeamMembers() {
+    var newMember = prompt("Enter the name of the new team member");
+    var newRole = prompt("What will their role be?");
+    console.log(newMember);
+    console.log(newRole);
   }
 
   render() {

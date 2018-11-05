@@ -53,7 +53,7 @@ class Submissions extends React.Component {
                     <Link to={path}>
                       <p>{idea.name}</p>
                     </Link><br/>
-  									<span class="type-subdued type-small">Owned by {idea.leader}</span>
+  									<span class="type-subdued type-small">Leader: {idea.leader}</span>
   								</td>
   								<td>
   									<div className="avatar">

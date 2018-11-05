@@ -15,6 +15,7 @@ class IdeasShow extends React.Component {
       name: '',
       description: '',
       comments: [],
+      leader: '',
       members: [],
       currentcomment: ''
     };
@@ -64,7 +65,10 @@ handleSubmit(event) {
   }
 
   addTeamMembers() {
-    alert('Add code to execute when this link is clicked to the addTeamMembers function');
+    var newMember = prompt("Enter the name of the new team member");
+    var newRole = prompt("What will their role be?");
+    console.log(newMember);
+    console.log(newRole);
   }
 
   componentDidMount() {
@@ -74,6 +78,7 @@ handleSubmit(event) {
         name: data.name,
         description: data.description,
         members: data.members,
+        leader: data.leader,
         comments: data.comments
        }, () => {
         console.log(this.state);
@@ -85,9 +90,15 @@ handleSubmit(event) {
   }
 
 
-  render() {
+
+
+  render() {   
+
     return (
       
+
+
+
       <div className="container">
           <div className="idea-detail-left-column">
             <Card>
@@ -124,19 +135,20 @@ handleSubmit(event) {
           </div>
             <div className="idea-detail-right-column">
             <Card title="Comments">
-             <IdeaComments id={this.id} comments={this.state.comments} />
-          
-             
-              <ReactQuill
+             <ReactQuill
                   placeholder="Add a comment"
                   className="idea-details-description-input"
                   value={this.state.currentcomment}
                   onChange={this.handleChangeComment}
                 >
                 </ReactQuill>
-                <div className="button spacing-inline-m" onClick={this.handleSubmit}>
+                <button className="button" onClick={this.handleSubmit}>
                   Post comment
-                </div>
+                </button>
+             <IdeaComments id={this.id} comments={this.state.comments} />
+          
+             
+              
             </Card>
           </div>
         </div>
