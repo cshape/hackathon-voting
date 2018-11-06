@@ -20,7 +20,6 @@ class IdeasForm extends React.Component {
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeDescription = this.handleChangeDescription.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.addTeamMembers = this.addTeamMembers.bind(this);
   }
 
   handleChangeTitle(event) {
@@ -42,13 +41,6 @@ class IdeasForm extends React.Component {
       console.log(response, 'idea noted!');
       this.props.history.push('/Ideas');
     })
-  }
-
-   addTeamMembers() {
-    var newMember = prompt("Enter the name of the new team member");
-    var newRole = prompt("What will their role be?");
-    console.log(newMember);
-    console.log(newRole);
   }
 
   render() {
@@ -86,28 +78,6 @@ class IdeasForm extends React.Component {
               </form>
             </Card>
           </div>
-					<div className="idea-detail-right-column">
-            <Card title="Team" links={[{content: 'Add team members', onAction: this.addTeamMembers}]}>
-              <Avatar></Avatar>
-              <Avatar
-                initials="C"
-                textLabel="Cale Shapera"
-                textStyle="bold"
-                subTextLabel="Owner"
-                backgroundColor="#FBB134"
-              >
-              </Avatar>
-              <Avatar
-                initials="G"
-                textLabel="Geoff Thierman"
-                textStyle="bold"
-                subTextLabel="Designer"
-                backgroundColor="#B264E7"
-                spacing="none"
-              >
-              </Avatar>
-            </Card>
-					</div>
 				</div>
     );
   }

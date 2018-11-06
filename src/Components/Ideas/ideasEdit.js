@@ -6,6 +6,7 @@ import Avatar from '../UI/Avatar/Avatar';
 import { withRouter } from 'react-router';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import IdeaMembers from './IdeaMembers';
 
 class IdeasEdit extends React.Component {
   result = ''
@@ -29,7 +30,9 @@ class IdeasEdit extends React.Component {
       .then(response => response.json())
       .then(data => this.setState({
         name: data.name,
-        description: data.description
+        description: data.description,
+        leader: data.leader,
+        members: data.members
        }));
   }
 
@@ -116,24 +119,13 @@ handleChangeDescription(value) {
           </div>
           <div className="idea-detail-right-column">
             <Card title="Team" links={[{content: 'Add team members', onAction: this.addTeamMembers}]}>
-              <Avatar></Avatar>
-              <Avatar
-                initials="C"
-                textLabel="Cale Shapera"
-                textStyle="bold"
-                subTextLabel="Owner"
-                backgroundColor="#FBB134"
-              >
-              </Avatar>
-              <Avatar
-                initials="G"
-                textLabel="Geoff Thierman"
-                textStyle="bold"
-                subTextLabel="Designer"
-                backgroundColor="#B264E7"
-                spacing="none"
-              >
-              </Avatar>
+               {/*<Avatar
+                  initials={this.state.leader.charAt(0)}
+                  textLabel={this.state.leader}
+                  textStyle="bold"
+                  subTextLabel="Leader"
+                  backgroundColor="#FBB134" />*/}
+              <IdeaMembers id={this.id} members={this.state.members} />
             </Card>
           </div>
         </div>
