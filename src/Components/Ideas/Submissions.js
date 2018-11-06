@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import FrontPageMembers from './FrontPageMembers';
 
 
 class Submissions extends React.Component {
@@ -56,16 +57,8 @@ class Submissions extends React.Component {
   									<span class="type-subdued type-small">Leader: {idea.leader}</span>
   								</td>
   								<td>
-  									<div className="avatar">
-  										<div className="avatar-picture">
-  											C
-  										</div>
-  										<div className="avatar-picture">
-  											C
-  										</div>
-  										<div className="avatar-picture">
-  											C
-  										</div>
+  									<div className="frontpagemembers">
+  										<FrontPageMembers id={idea._id} members={idea.members}/>
   									</div>
   								</td>
   								<td><button onClick={this.deleteIdea.bind(this,ideaId)} id={i} className="button button__small">Delete</button>

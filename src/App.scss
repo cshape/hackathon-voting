@@ -145,6 +145,18 @@ table {
   right: 20px;
 }
 
+.frontpagemembers {
+  display: inline;
+}
+
+.avatarwrapwrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .formnewidea {
   border: 1px black solid;
   padding: 20px;
