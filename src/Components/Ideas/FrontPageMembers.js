@@ -1,13 +1,11 @@
 import React from 'react';
-import Parser from 'html-react-parser';
-import Avatar from '../UI/Avatar/Avatar';
 
 
 class FrontPageMembers extends React.Component { 
 	constructor(props) {
 		super(props);
 			this.state = {
-				comments: ''
+				members: ''
 			}
 		this.id = this.props.id;
 	}	
@@ -42,7 +40,6 @@ class FrontPageMembers extends React.Component {
               </div>
   					)
   				})
-          let theleader = this.props.leader;
   				this.setState({ members: themembers
            })
   			}

@@ -35,6 +35,8 @@ class App extends Component {
 
   logout = () => {
     this.setState({isAuthenticated: false, token: '', user: null});
+    localStorage.removeItem('userid');
+    localStorage.removeItem('token');
   };
 
 
@@ -56,7 +58,10 @@ googleResponse = (response) => {
             console.log(token);
             r.json().then(user => {
                 console.log("user email:", user.email);
+                localStorage.setItem('userid', user.id);
+                console.log(localStorage.getItem('userid'));
                 if (token) {
+                    localStorage.setItem('token', token);
                     this.setState({isAuthenticated: true, user, token});
                     console.log(this.state);
                     console.log(user);
@@ -70,9 +75,33 @@ googleResponse = (response) => {
     }
 
     componentDidMount() {
-   this.setState({
-     isLoading: false
-   });
+   let authtoken = localStorage.getItem('token');
+   let userid = localStorage.getItem('userid')
+   console.log(authtoken);
+   const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              'token': authtoken,
+              'id': userid
+            }),
+            mode: 'cors',
+            cache: 'default'
+        };
+   fetch('http://localhost:3001/api/google/auth', options)
+      .then(res => {
+   return res.json();
+      })
+      .then(user => {
+        if (user.id === userid) {
+          this.setState({ isAuthenticated: true, 
+                  user: user,
+                  token: authtoken });
+          console.log(this.state);
+        }
+      })  
 }
 
     onTextboxChangeSignInEmail(event) {
@@ -238,7 +267,7 @@ onSignIn() {
 
                 <Route  path="/ideas" 
                         render={(props) => (
-                        this.state.isAuthenticated === false ? (  
+                        localStorage.getItem('token') === null ? (  
                           <Redirect to="/"/>
                           ) : (
                           <Ideas />)
@@ -246,7 +275,7 @@ onSignIn() {
 
                 <Route  path="/ideasShow/:id" 
                         render={({ props, match }) => (
-                        this.state.isAuthenticated === false ? (  
+                        localStorage.getItem('token') === null ? (  
                           <Redirect to="/"/>
                           ) : (
                           <IdeasShow user={loggedinuser} match={match} />)

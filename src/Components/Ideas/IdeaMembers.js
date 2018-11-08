@@ -1,5 +1,4 @@
 import React from 'react';
-import Parser from 'html-react-parser';
 import Avatar from '../UI/Avatar/Avatar';
 
 
@@ -29,8 +28,6 @@ class IdeaMembers extends React.Component {
   						</div>
   					)
   				})
-  				let theleader = this.props.leader;
-          console.log(theleader);
           this.setState({ members: themembers
                            })
   			}
@@ -52,7 +49,6 @@ class IdeaMembers extends React.Component {
               </div>
   					)
   				})
-          let theleader = this.props.leader;
   				this.setState({ members: themembers
            })
   			}

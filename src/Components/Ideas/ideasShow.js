@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Card from '../UI/Card/Card';
-import Avatar from '../UI/Avatar/Avatar';
 import Parser from 'html-react-parser';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -82,6 +81,7 @@ handleSubmit(event) {
   }
 
   componentDidMount() {
+
     fetch('http://localhost:3001/api/idea/'+ this.id)
       .then(response => response.json())
       .then(data => this.setState({
