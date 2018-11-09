@@ -11,7 +11,8 @@ class Submissions extends React.Component {
       			submissions: '',
     		}
 	  this.deleteIdea = this.deleteIdea.bind(this);
-
+    this.starIdea = this.starIdea.bind(this);
+    this.joinTeam = this.joinTeam.bind(this);
    	}
 
 // send a DELETE http request to the api to delete the idea with the matching id
@@ -35,7 +36,13 @@ class Submissions extends React.Component {
   	}))
   }
 
+  starIdea(id, event) {
+    alert("add code to star an idea");
+  }
 
+  joinTeam() {
+    alert("add code to join a team from this screen");
+  }
 
   componentDidMount() {
 
@@ -61,8 +68,12 @@ class Submissions extends React.Component {
   										<FrontPageMembers id={idea._id} members={idea.members}/>
   									</div>
   								</td>
-  								<td><button onClick={this.deleteIdea.bind(this,ideaId)} id={i} className="button button__small">Delete</button>
-                  <Link to={editPath}><button className="button button__small">Edit</button></Link></td>
+  								<td>
+                    <button onClick={this.deleteIdea.bind(this,ideaId)} id={i} className="button button__small">Delete</button>
+                    <Link to={editPath}><button className="button button__small">Edit</button></Link>
+                    <button onClick={this.starIdea.bind(this,ideaId)} className="button button__small">Star</button>
+                    <button onClick={this.joinTeam.bind(this,ideaId)} className="button button__small">Join Team</button>
+                  </td>
   	          	</tr>
 
             )

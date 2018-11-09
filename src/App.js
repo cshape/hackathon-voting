@@ -3,9 +3,7 @@ import Config from './config.json';
 import Ideas from './Components/Ideas/Ideas';
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
-
 import { Route, Redirect, BrowserRouter, Link } from 'react-router-dom';
-
 import IdeasForm from './Components/Ideas/ideasForm';
 import IdeasShow from './Components/Ideas/ideasShow';
 import IdeasEdit from './Components/Ideas/ideasEdit';
