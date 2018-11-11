@@ -268,7 +268,7 @@ onSignIn() {
                         localStorage.getItem('token') === null ? (  
                           <Redirect to="/"/>
                           ) : (
-                          <Ideas />)
+                          <Ideas user={loggedinuser} />)
                       )}/>
 
                 <Route  path="/ideasShow/:id" 

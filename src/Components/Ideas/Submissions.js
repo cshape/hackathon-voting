@@ -45,7 +45,7 @@ class Submissions extends React.Component {
     alert("add code to join a team from this screen");
   }
 
-  componentDidMount() {
+  componentDidMount(props) {
 
   			fetch('http://localhost:3001/api/ideas')
   			.then(results => {
@@ -54,7 +54,10 @@ class Submissions extends React.Component {
   				let submissions = data.map((idea, i) => {
            let path = "/ideasShow/" + idea._id;
            let editPath = "/ideasEdit/" + idea._id;
-           let ideaId = idea._id
+           let ideaId = idea._id;
+           console.log(idea.leader);
+           console.log(this.props.user.fullName);
+
   	        return(
 
   	          	<tr className="ideaSubmission" key={i} id={idea.id}>
@@ -62,7 +65,7 @@ class Submissions extends React.Component {
                     <Link to={path}>
                       <p>{idea.name}</p>
                     </Link><br/>
-  									<span class="type-subdued type-small">Leader: {idea.leader}</span>
+  									<span className="type-subdued type-small">Leader: {idea.leader}</span>
   								</td>
   								<td>
   									<div className="frontpagemembers">
@@ -70,10 +73,14 @@ class Submissions extends React.Component {
   									</div>
   								</td>
   								<td>
-                    <button onClick={this.deleteIdea.bind(this,ideaId)} id={i} className="button button__small">Delete</button>
-                    <Link to={editPath}><button className="button button__small">Edit</button></Link>
-                    <button onClick={this.starIdea.bind(this,ideaId)} className="button button__small">Star</button>
-                    <button onClick={this.joinTeam.bind(this,ideaId)} className="button button__small">Join Team</button>
+                      <button onClick={this.starIdea.bind(this,ideaId)} className="button button__small">Star</button>
+                      <button onClick={this.joinTeam.bind(this,ideaId)} className="button button__small">Join Team</button>
+                    {idea.leader === this.props.user.fullName &&
+                      <Link to={editPath}><button className="button button__small">Edit</button></Link>
+                    }
+                    {idea.leader === this.props.user.fullName &&
+                      <button onClick={this.deleteIdea.bind(this,ideaId)} id={i} className="button button__small">Delete</button>
+                    }
                   </td>
   	          	</tr>
 
@@ -113,7 +120,7 @@ class Submissions extends React.Component {
 
         render() {
 
-
+          console.log(this.props.user);
         	return (
         	<div className="Submissions">
 	      		<table>
