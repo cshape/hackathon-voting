@@ -24,6 +24,8 @@ class IdeasEdit extends React.Component {
     this.id = props.match.params.id;
   }
 
+    
+
   componentDidMount() {
     fetch('http://localhost:3001/api/idea/'+ this.id)
       .then(response => response.json())

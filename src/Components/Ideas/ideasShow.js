@@ -60,6 +60,28 @@ handleSubmit(event) {
   });  
  }
 
+ //leave a team (still fucked... need to target the subdocument of the specific member of the group. should be able to use the member._id.. which is nested?)
+
+  deleteMember(id, event) {
+    let button = event.target;
+    let idKey = button.id;
+    let url = `http://localhost:3001/api/idea/members/${this.id}`;
+
+    axios.put(url, {
+      members: this.state.members.filter(match => match.key !== idKey)
+    })
+      .then(response => {
+        console.log(response, "member removed")
+      })
+      .catch(err => {
+        console.log(err, "member not removed")
+      })
+
+    this.setState(() => ({
+      members: this.state.members.filter(match => match.key !== idKey),
+    }))
+  }
+
   addTeamMembers() {
     let url = `http://localhost:3001/api/idea/${this.id}`
     var newMember = prompt("Enter the name of the new team member");

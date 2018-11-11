@@ -13,13 +13,16 @@ class IdeaMembers extends React.Component {
     this.deleteMember = this.deleteMember.bind(this);
 	}	
 
-  deleteMember(id, event) {
+
+deleteMember(id, event) {
     let button = event.target;
     let idKey = button.id;
-    let url = `http://localhost:3001/api/idea/${id}`;
+    let url = `http://localhost:3001/api/ideas/members/${this.id}`;
+    let member2kill = this.state.members.filter(match => match.key === idKey);
+    console.log(member2kill[0].props.id);
 
-    axios.put(url, {
-      members: this.state.members.filter(match => match.key !== idKey)
+    axios.post(url, {
+      deletionId: member2kill[0].props.id
     })
       .then(response => {
         console.log(response, "member removed")
@@ -47,12 +50,13 @@ class IdeaMembers extends React.Component {
                   textStyle="bold"
                   subTextLabel={member.role}
                   backgroundColor="#FBB134" />
-               <button id={i} onClick={this.deleteMember.bind(this,memberId)} className="button button__small">need to fix this (id issue?)</button>   
+               <button id={i} onClick={this.deleteMember.bind(this, memberId)} className="button button__small">Leave Team</button>   
   						</div>
   					)
   				})
           this.setState({ members: themembers
-                           })
+                           });
+          console.log(themembers);
   			}
 
 //on update, check if the member state in ideasShow has changed. if so, update the comments
@@ -69,13 +73,14 @@ class IdeaMembers extends React.Component {
                   textStyle="bold"
                   subTextLabel={member.role}
                   backgroundColor="#FBB134" />
-                <button id={i} onClick={this.deleteMember.bind(this,memberId)} className="button button__small">need to fix this - id issue?</button>
+                <button id={i} onClick={this.deleteMember.bind(this, memberId)} className="button button__small">Leave Team</button>
                
               </div>
   					)
   				})
   				this.setState({ members: themembers
            })
+          console.log(themembers);
   			}
   		}
 

@@ -25,7 +25,8 @@ class Submissions extends React.Component {
     let url = `http://localhost:3001/api/idea/${id}`
   	axios.delete(url)
   		.then(response => {
-  			console.log(response, "idea deleted.")
+  			console.log(response, "idea deleted.");
+        console.log("poop");
   		})
   		.catch(err => {
   			console.log(err, "idea not deleted.")
