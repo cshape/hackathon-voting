@@ -85,6 +85,7 @@ table {
   border-radius: $border-radius;
   th, td {
     text-align: left;
+    max-width: 650px;
     padding: spacing(s);
     &:first-child {
       padding-left: spacing(l);
@@ -155,6 +156,13 @@ table {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.subdued-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 550px;
 }
 
 .formnewidea {

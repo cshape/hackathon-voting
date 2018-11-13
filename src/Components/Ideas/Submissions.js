@@ -65,8 +65,11 @@ class Submissions extends React.Component {
                     <Link to={path}>
                       <p>{idea.name}</p>
                     </Link><br/>
-  									<span className="type-subdued type-small">Leader: {idea.leader}</span>
-  								</td>
+  									<div className="subdued-text">
+                      <div className="type-subdued type-small">Leader: {idea.leader}</div>
+                      <div className="type-subdued type-small-right">Liked by 1 person</div>
+  								  </div>
+                  </td>
   								<td>
   									<div className="frontpagemembers">
   										<FrontPageMembers id={idea._id} members={idea.members}/>
