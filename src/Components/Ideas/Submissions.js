@@ -73,8 +73,9 @@ class Submissions extends React.Component {
   									</div>
   								</td>
   								<td>
-                      <button onClick={this.starIdea.bind(this,ideaId)} className="button button__small">Star</button>
+                      <button onClick={this.starIdea.bind(this,ideaId)} className="button button__small">Like</button>
                       <button onClick={this.joinTeam.bind(this,ideaId)} className="button button__small">Join Team</button>
+
                     {idea.leader === this.props.user.fullName &&
                       <Link to={editPath}><button className="button button__small">Edit</button></Link>
                     }

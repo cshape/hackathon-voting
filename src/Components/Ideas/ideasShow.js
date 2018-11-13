@@ -21,19 +21,16 @@ class IdeasShow extends React.Component {
     };
 
     this.id = props.match.params.id;
-    this.addTeamMembers = this.addTeamMembers.bind(this);
+    this.addMembers = this.addMembers.bind(this);
     this.handleChangeComment = this.handleChangeComment.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitComment = this.handleSubmitComment.bind(this);
   }
 
 handleChangeComment(value) {
     this.setState({ currentcomment: value });
   }
  
-
-
-
-handleSubmit(event) {
+handleSubmitComment(event) {
     event.preventDefault();
     console.log(this.state);
     let url = `http://localhost:3001/api/idea/${this.id}`;
@@ -42,8 +39,6 @@ handleSubmit(event) {
       'text': this.state.currentcomment,
       'date': Date.now()
     }
-
-
 
      this.setState({
       comments: [...this.state.comments, commentObject]
@@ -59,8 +54,6 @@ handleSubmit(event) {
     });
   });  
  }
-
- //leave a team (still fucked... need to target the subdocument of the specific member of the group. should be able to use the member._id.. which is nested?)
 
   deleteMember(id, event) {
     let button = event.target;
@@ -82,7 +75,7 @@ handleSubmit(event) {
     }))
   }
 
-  addTeamMembers() {
+  addMembers() {
     let url = `http://localhost:3001/api/idea/${this.id}`
     var newMember = prompt("Enter the name of the new team member");
     var newRole = prompt("What will their role be?");
@@ -127,7 +120,7 @@ handleSubmit(event) {
       
 
 
-
+    <div>
       <div className="container">
           <div className="idea-detail-left-column">
             <Card>
@@ -142,7 +135,7 @@ handleSubmit(event) {
 
           <div className="idea-detail-right-column">
             
-            <Card title="Team" links={[{content: 'Add team members', onAction: this.addTeamMembers}]}>
+            <Card title="Team" links={[{content: 'Join Team', onAction: this.addMembers}]}>
                {/*<Avatar
                   initials={this.state.leader.charAt(0)}
                   textLabel={this.state.leader}
@@ -152,8 +145,12 @@ handleSubmit(event) {
               <IdeaMembers id={this.id} members={this.state.members} />
             </Card>
           </div>
-            <div className="idea-detail-right-column">
+        </div>
+        <div className="container">
+            <div className="idea-detail-comments">
             <Card title="Comments">
+             
+             <IdeaComments id={this.id} comments={this.state.comments} />
              <ReactQuill
                   placeholder="Add a comment"
                   className="idea-details-description-input"
@@ -161,17 +158,13 @@ handleSubmit(event) {
                   onChange={this.handleChangeComment}
                 >
                 </ReactQuill>
-                <button className="button" onClick={this.handleSubmit}>
+                <button className="button" onClick={this.handleSubmitComment}>
                   Post comment
-                </button>
-             <IdeaComments id={this.id} comments={this.state.comments} />
-          
-             
-              
+                </button> 
             </Card>
           </div>
         </div>
-
+      </div>
 
       
     );

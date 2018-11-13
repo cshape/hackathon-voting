@@ -104,9 +104,6 @@ handleChangeDescription(value) {
                   onChange={this.handleChangeDescription}
                 >
                 </ReactQuill>
-                <br />
-                <br />
-                <br />
                 <div className="button-row">
                   <div className="button" onClick={this.handleSubmit}>
                     Save idea
