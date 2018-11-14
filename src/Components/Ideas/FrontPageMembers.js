@@ -13,7 +13,6 @@ class FrontPageMembers extends React.Component {
 //set the members from the ideasShow component as the state
 
 		componentDidMount(prevProps) {
-			console.log(this.props.members);
       let themembers = this.props.members.map((member, i) => {
   					return(
   						<div className="avatarwrapwrap" key={i} id={member._id}>
@@ -23,7 +22,6 @@ class FrontPageMembers extends React.Component {
   					)
   				})
   				let theleader = this.props.leader;
-          console.log(theleader);
           this.setState({ members: themembers
                            })
   			}

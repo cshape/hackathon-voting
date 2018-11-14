@@ -26,7 +26,6 @@ class Submissions extends React.Component {
   	axios.delete(url)
   		.then(response => {
   			console.log(response, "idea deleted.");
-        console.log("poop");
   		})
   		.catch(err => {
   			console.log(err, "idea not deleted.")
@@ -99,8 +98,6 @@ class Submissions extends React.Component {
            let path = "/ideasShow/" + idea._id;
            let editPath = "/ideasEdit/" + idea._id;
            let ideaId = idea._id;
-           console.log(idea.leader);
-           console.log(this.props.user.fullName);
 
   	        return(
 
