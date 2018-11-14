@@ -34,7 +34,7 @@ class Submissions extends React.Component {
   		})
 
   	this.setState(() => ({
-  		submissions: this.state.submissions.filter(match => match._id !== idKey),
+  		submissions: this.state.submissions.filter(match => match.id !== idKey),
   	}))
   }
 
