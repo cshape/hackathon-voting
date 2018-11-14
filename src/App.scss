@@ -58,7 +58,7 @@ body {
 }
 
 .button {
-  margin: 5px;
+  margin: 5px 5px 5px 0px;
 }
 .app-body {
   padding: spacing(l);
@@ -150,11 +150,10 @@ table {
   display: inline;
 }
 
-.avatarwrapwrap {
+.avatarwrapper {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -178,4 +177,12 @@ table {
 .formcontainer {
   position: absolute;
   left: 800px;
+}
+
+.ql-editor{
+  min-height: 120px !important;
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: scroll;
 }

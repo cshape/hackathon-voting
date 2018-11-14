@@ -50,7 +50,7 @@ deleteMember(id, event) {
                   textStyle="bold"
                   subTextLabel={member.role}
                   backgroundColor="#FBB134" />
-               <button id={i} onClick={this.deleteMember.bind(this, memberId)} className="button button__small">Leave Team</button>   
+               <a className="type-style(small)" id={i} onClick={this.deleteMember.bind(this, memberId)}>Leave Team</a>   
   						</div>
   					)
   				})
@@ -73,7 +73,7 @@ deleteMember(id, event) {
                   textStyle="bold"
                   subTextLabel={member.role}
                   backgroundColor="#FBB134" />
-                <button id={i} onClick={this.deleteMember.bind(this, memberId)} className="button button__small">Leave Team</button>
+                <a className="type-style(small) "id={i} onClick={this.deleteMember.bind(this, memberId)}>Leave Team</a>
                
               </div>
   					)

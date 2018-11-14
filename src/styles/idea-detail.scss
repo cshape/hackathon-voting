@@ -1,10 +1,11 @@
 .idea-detail-left-column {
   flex: 1 1 auto;
   input[type="text"], textarea {
-    margin-bottom: $input-margin;
+    margin-bottom: 15px;
   }
   .idea-details-description-input {
     min-height: 20px;
+    margin-top: 15px;
   }
   .idea-details-title-input {
     // font-weight: type-weight(bold);
@@ -20,10 +21,11 @@
 .idea-detail-comments {
   flex: 1 1 auto;
   input[type="text"], textarea {
-    margin-bottom: $input-margin;
+    margin-bottom: 15px;
   }
   .idea-details-description-input {
-    min-height: 20px;
+    margin-top: 10px;
+    min-height: 15px;
   }
   .idea-details-title-input {
     // font-weight: type-weight(bold);
