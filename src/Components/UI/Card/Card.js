@@ -14,7 +14,7 @@ class Card extends React.Component {
 		var linkList = [];
 		if (links) {
 			Object.values(links).map(function(link){
-				var link = <button className="button" onClick={link.onAction}>{link.content}</button>
+				var link = <a onClick={link.onAction}>{link.content}</a>
 				linkList.push(link)
 			})
 			return linkList;

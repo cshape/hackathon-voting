@@ -131,6 +131,23 @@ handleSubmitComment(event) {
                 {Parser(`${this.state.description}`)}
               </div>
             </Card>
+          </div>
+
+          <div className="idea-detail-right-column">
+            
+            <Card title="Team" links={[{content: 'Join Team', onAction: this.addMembers}]}>
+               {/*<Avatar
+                  initials={this.state.leader.charAt(0)}
+                  textLabel={this.state.leader}
+                  textStyle="bold"
+                  subTextLabel="Leader"
+                  backgroundColor="#FBB134" />*/}
+              <IdeaMembers id={this.id} members={this.state.members} />
+            </Card>
+          </div>
+        </div>
+        <div className="container">
+            <div className="idea-detail-comments">
             <Card title="Comments">
              
              <IdeaComments id={this.id} comments={this.state.comments} />
@@ -144,19 +161,6 @@ handleSubmitComment(event) {
                 <button className="button" onClick={this.handleSubmitComment}>
                   Post comment
                 </button> 
-            </Card>
-          </div>
-
-          <div className="idea-detail-right-column">
-            
-            <Card title="Team" links={[{content: 'Join Team', onAction: this.addMembers}]}>
-               {/*<Avatar
-                  initials={this.state.leader.charAt(0)}
-                  textLabel={this.state.leader}
-                  textStyle="bold"
-                  subTextLabel="Leader"
-                  backgroundColor="#FBB134" />*/}
-              <IdeaMembers id={this.id} members={this.state.members} />
             </Card>
           </div>
         </div>

@@ -7,7 +7,8 @@ class Ideas extends React.Component {
 		this.state = {
 			title: '',
 			leader: '',
-			description: ''
+			description: '',
+			submitting: false
 		};
 	}
 
@@ -16,7 +17,7 @@ class Ideas extends React.Component {
  		console.log(this.props.user);
 		return (
 			<div>
-				<Submissions user={this.props.user} deleteIdea={this.deleteIdea} />
+				<Submissions user={this.props.user} submitting={this.state.submitting} deleteIdea={this.deleteIdea} />
 			</div>
 		);
 	}

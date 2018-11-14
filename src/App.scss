@@ -58,7 +58,7 @@ body {
 }
 
 .button {
-  margin: 5px 5px 5px 0px;
+  margin: 5px;
 }
 .app-body {
   padding: spacing(l);
@@ -85,7 +85,6 @@ table {
   border-radius: $border-radius;
   th, td {
     text-align: left;
-    max-width: 650px;
     padding: spacing(s);
     &:first-child {
       padding-left: spacing(l);
@@ -150,18 +149,12 @@ table {
   display: inline;
 }
 
-.avatarwrapper {
+.avatarwrapwrap {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
-}
-
-.subdued-text {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 550px;
 }
 
 .formnewidea {
@@ -177,12 +170,4 @@ table {
 .formcontainer {
   position: absolute;
   left: 800px;
-}
-
-.ql-editor{
-  min-height: 120px !important;
-  max-height: 300px;
-  overflow: hidden;
-  overflow-y: scroll;
-  overflow-x: scroll;
 }

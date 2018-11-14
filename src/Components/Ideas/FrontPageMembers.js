@@ -28,14 +28,15 @@ class FrontPageMembers extends React.Component {
                            })
   			}
 
-//on update, check if the member state in ideasShow has changed. if so, update the members
+//on update, check if the member state in ideasShow has changed. if so, update the comments
 
   		componentDidUpdate(prevProps) {
   			if (prevProps.members !== this.props.members) {
           let themembers = this.props.members.map((member, i) => {
   					return(
   						<div className="avatarwrapper" key={i} id={member._id}>
-               <p className="avatarwrapper">{member.name}</p>
+                {member.name}
+               
               </div>
   					)
   				})

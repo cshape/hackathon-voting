@@ -9,10 +9,9 @@ class Submissions extends React.Component {
     	super(props);
 			this.state = {
       			submissions: '',
-            ideastojoin: []
     		}
 	  this.deleteIdea = this.deleteIdea.bind(this);
-    this.likeIdea = this.likeIdea.bind(this);
+    this.starIdea = this.starIdea.bind(this);
     this.joinTeam = this.joinTeam.bind(this);
    	}
 
@@ -34,42 +33,17 @@ class Submissions extends React.Component {
   		})
 
   	this.setState(() => ({
-  		submissions: this.state.submissions.filter(match => match.id !== idKey),
+  		submissions: this.state.submissions.filter(match => match.key !== idKey),
   	}))
   }
 
-  likeIdea(id, event) {
-    let button = event.target;
-    console.log(button);
-    let idKey = button.id;
-    let url = `http://localhost:3001/api/idea/${id}`;
-    console.log(idKey);
-
-    let likedIdea = this.state.ideastojoin.filter(match => match._id === idKey);
-
-    var likeObject = {
-      "likeuser": this.props.user.fullName,
-      "date": Date.now()
-    }
-
-    console.log(likeObject);
-
-    axios.put(url, likeObject).then(response => {
-      console.log(response, "idea liked");
-    }).catch(err => {
-      console.log(err, "idea not liked");
-    })
-    console.log(likedIdea);
+  starIdea(id, event) {
+    alert("add code to star an idea");
   }
-
-  
-
 
   joinTeam() {
     alert("add code to join a team from this screen");
   }
-
- 
 
   componentDidMount(props) {
 
@@ -77,34 +51,30 @@ class Submissions extends React.Component {
   			.then(results => {
   				return results.json();
   			}).then(data => {
-          let ideastojoin = data;
-          console.log(ideastojoin);
-          this.setState({ideastojoin: ideastojoin});
   				let submissions = data.map((idea, i) => {
            let path = "/ideasShow/" + idea._id;
            let editPath = "/ideasEdit/" + idea._id;
            let ideaId = idea._id;
+           console.log(idea.leader);
+           console.log(this.props.user.fullName);
 
   	        return(
 
   	          	<tr className="ideaSubmission" key={i} id={idea.id}>
-  								
-                  <td>
+  								<td>
                     <Link to={path}>
                       <p>{idea.name}</p>
                     </Link><br/>
-  									<div className="subdued-text">
-                      <div className="type-subdued type-small">Leader: {idea.leader}</div>
-  								  </div>
-                  </td>
+  									<span className="type-subdued type-small">Leader: {idea.leader}</span>
+  								</td>
   								<td>
   									<div className="frontpagemembers">
   										<FrontPageMembers id={idea._id} members={idea.members}/>
   									</div>
   								</td>
   								<td>
-                      <button onClick={this.likeIdea.bind(this,ideaId)} id={idea._id} className="button button__small">Like</button>
-                      <button onClick={this.joinTeam.bind(this,ideaId)} id={idea._id} className="button button__small">Join Team</button>
+                      <button onClick={this.starIdea.bind(this,ideaId)} className="button button__small">Like</button>
+                      <button onClick={this.joinTeam.bind(this,ideaId)} className="button button__small">Join Team</button>
 
                     {idea.leader === this.props.user.fullName &&
                       <Link to={editPath}><button className="button button__small">Edit</button></Link>
@@ -123,6 +93,28 @@ class Submissions extends React.Component {
   	       console.log(this.state.submissions);
   			})
   }
+
+   		// componentDidUpdate() {
+   		// 	let deleteIdea = this.props.deleteIdea.bind(this);
+
+   		// 	fetch('https://mighty-springs-20769.herokuapp.com/api/ideas')
+   		// 	.then(results => {
+   		// 		return results.json();
+   		// 	}).then(data => {
+   		// 		let submissions = data.map((idea) => {
+			  //       return(
+			  //         <div key={idea.results}>
+			  //         	<hr />
+			  //           <h2>{idea.name}</h2>
+					// 	<h3>Leader: {idea.leader}</h3>
+					// 	<p>Description: {idea.description} </p>
+					// 	<button onClick={deleteIdea} className="delete">Delete</button>
+		   //        </div>
+		   //        )
+			  //   })
+			  // this.setState({submissions: submissions})
+   		// 	})
+   		//
 
 
 
