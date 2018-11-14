@@ -23,12 +23,6 @@ class App extends Component {
         token: ''
         }
     this.logout = this.logout.bind(this);
-    this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
-    this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
-    this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
-    this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
-    this.onSignUp = this.onSignUp.bind(this);
-    this.onSignIn = this.onSignIn.bind(this);
   }
 
   logout = () => {
@@ -36,8 +30,6 @@ class App extends Component {
     localStorage.removeItem('userid');
     localStorage.removeItem('token');
   };
-
-
 
 googleResponse = (response) => {
         const options = {
@@ -68,11 +60,7 @@ googleResponse = (response) => {
         })
     };
 
-  onFailure = (error) => {
-      alert(error);
-    }
-
-    componentDidMount() {
+  componentDidMount() {
    let authtoken = localStorage.getItem('token');
    let userid = localStorage.getItem('userid')
    console.log(authtoken);
@@ -101,116 +89,6 @@ googleResponse = (response) => {
         }
       })  
 }
-
-    onTextboxChangeSignInEmail(event) {
-    this.setState({
-      signInEmail: event.target.value,
-    });
-  }
-
-  onTextboxChangeSignInPassword(event) {
-    this.setState({
-      signInPassword: event.target.value,
-    });
-  }
-
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value,
-    });
-  }
-
-  onTextboxChangeSignUpPassword(event) {
-    this.setState({
-      signUpPassword: event.target.value,
-    });
-  }
-
-signOut() {
-  this.setState(prevState => ({
-    signedIn: !prevState.signedIn
-  }))
-}  
-
-onSignIn() {
-    // Grab state
-    const {
-      signInEmail,
-      signInPassword,
-    } = this.state;
-    this.setState({
-      isLoading: true,
-    });
-
-
-    // Post request to backend
-    fetch('http://localhost:3001/api/google', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: signInEmail,
-        password: signInPassword,
-      }),
-    }).then(res => res.json())
-      .then(json => {
-        console.log('json', json);
-        if (json.success) {
-          this.setState({
-            signInError: json.message,
-            isLoading: false,
-            signInPassword: '',
-            signInEmail: '',
-            signedIn: true
-          });
-        console.log("signedin:", this.state.signedIn);
-
-        } else {
-          this.setState({
-            signInError: json.message,
-            isLoading: false,
-            signInPassword: '',
-            signInEmail: ''
-          });
-          console.log("signedin:", this.state.signedIn);
-        }
-      });
-  }
-
-  onSignUp() {
-    // Grab state
-    const {
-      signUpEmail,
-      signUpPassword,
-      firstname,
-      lastname
-    } = this.state;
-    this.setState({
-      isLoading: true,
-    });
-
-    console.log("attempting signup");
-    console.log(this.state.firstname);
-    // Post request to backend
-    
-      axios.post('https://mighty-springs-20769.herokuapp.com/api/users/signup', {
-        email: signUpEmail,
-        password: signUpPassword,
-        firstname: firstname,
-        lastname: lastname
-      })
-      .then(response => {
-        console.log(response, 'new user added!');
-      })
-      .catch(err => {
-        console.log(err, 'something fucked happened');
-      })
-        this.setState({email: ''});
-        this.setState({password: ''});
-        this.setState({firstname: ''});
-        this.setState({lastname: ''});
-      }
 
   render() {
 
@@ -244,7 +122,7 @@ onSignIn() {
                             clientId={Config.GOOGLE_CLIENT_ID}
                             render={renderProps => (
                                 <button className="googlebutton"
-                                        onClick={renderProps.onClick}>Sign In with Google</button>
+                                        onClick={renderProps.onClick}>Sign In</button>
                               )}
                             buttonText="Mufukin Google Login"
                             onSuccess={this.googleResponse}
@@ -252,16 +130,6 @@ onSignIn() {
                           />
                         </div>)
                       )}/>
-               
-
-             {/*   <Route
-                  path='/signup'
-                  render={(props) => <SignUp 
-                    onSignUp={this.onSignUp} 
-                    onTextboxChangeSignUpEmail={this.onTextboxChangeSignUpEmail}
-                    onTextboxChangeSignUpPassword={this.onTextboxChangeSignUpPassword}
-                    />}
-                />*/}
 
                 <Route  path="/ideas" 
                         render={(props) => (

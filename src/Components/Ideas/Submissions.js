@@ -9,10 +9,10 @@ class Submissions extends React.Component {
     	super(props);
 			this.state = {
       			submissions: '',
+            likes: []
     		}
 	  this.deleteIdea = this.deleteIdea.bind(this);
-    this.starIdea = this.starIdea.bind(this);
-    this.joinTeam = this.joinTeam.bind(this);
+    this.likeIdea = this.likeIdea.bind(this);
    	}
 
 // send a DELETE http request to the api to delete the idea with the matching id
@@ -37,13 +37,57 @@ class Submissions extends React.Component {
   	}))
   }
 
-  starIdea(id, event) {
-    alert("add code to star an idea");
+  likeIdea(id, event) {
+    let url = `http://localhost:3001/api/idea/${id}`;
+    var likeObject = {
+      'user': this.props.user.fullName,
+      'date': Date.now()
+    }
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => this.setState({
+        likes: [...data.likes, likeObject]
+      }, () => {
+        console.log(this.state.likes)
+        console.log(data);
+      }))
+    
+    console.log(likeObject);
+    axios.put(url, likeObject).then(response => {
+      console.log(response, "like added");
+    })
+    this.setState({
+      likes: ''
+    })
   }
 
-  joinTeam() {
-    alert("add code to join a team from this screen");
-  }
+  handleSubmitComment(event) {
+    event.preventDefault();
+    console.log(this.state);
+    let url = `http://localhost:3001/api/idea/${this.id}`;
+    var commentObject = {
+      'author': this.props.user.fullName,
+      'text': this.state.currentcomment,
+      'date': Date.now()
+    }
+
+     this.setState({
+      comments: [...this.state.comments, commentObject]
+    }, () => {
+      console.log(this.state.comments);
+      axios.put(url, {
+        comments: this.state.comments
+      }).then(response => {
+      console.log(response, 'comment added');
+      this.setState({ currentcomment: ''})
+      console.log(this.state.comments);
+      this.forceUpdate();
+    });
+  });  
+ }
+
+ 
 
   componentDidMount(props) {
 
@@ -73,8 +117,7 @@ class Submissions extends React.Component {
   									</div>
   								</td>
   								<td>
-                      <button onClick={this.starIdea.bind(this,ideaId)} className="button button__small">Like</button>
-                      <button onClick={this.joinTeam.bind(this,ideaId)} className="button button__small">Join Team</button>
+                      <button onClick={this.likeIdea.bind(this,ideaId)} id={i} className="button button__small">Like</button>
 
                     {idea.leader === this.props.user.fullName &&
                       <Link to={editPath}><button className="button button__small">Edit</button></Link>
