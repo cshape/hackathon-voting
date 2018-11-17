@@ -71,7 +71,7 @@ handleChangeDescription(value) {
       description: this.state.description
     }).then(response => {
       console.log(response, 'idea edited!');
-      this.props.history.push('/Ideas');
+      this.props.history.push(`/ideasShow/${this.id}`);
     })
   }
 

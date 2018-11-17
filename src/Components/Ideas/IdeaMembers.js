@@ -44,12 +44,14 @@ deleteMember(id, event) {
   					let memberId = member._id;
             return(
   						<div className="avatarwrapper" key={i} id={member._id}>
-                <Avatar
+                <div className="avatarwrapper">
+                  <Avatar
                   initials={member.name.charAt(0)}
                   textLabel={member.name}
                   textStyle="bold"
                   subTextLabel={member.role}
                   backgroundColor="#FBB134" />
+                </div>
                <button id={i} onClick={this.deleteMember.bind(this, memberId)} className="button button__small">Leave Team</button>   
   						</div>
   					)

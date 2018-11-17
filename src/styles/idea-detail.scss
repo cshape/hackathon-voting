@@ -9,6 +9,7 @@
   .idea-details-title-input {
     // font-weight: type-weight(bold);
     @include type(h1);
+    margin-bottom: 15px;
   }
 }
 

@@ -29,6 +29,7 @@ class App extends Component {
     this.setState({isAuthenticated: false, token: '', user: null});
     localStorage.removeItem('userid');
     localStorage.removeItem('token');
+    localStorage.removeItem('fullName')
   };
 
 googleResponse = (response) => {
@@ -52,6 +53,7 @@ googleResponse = (response) => {
                 console.log(localStorage.getItem('userid'));
                 if (token) {
                     localStorage.setItem('token', token);
+                    localStorage.setItem('fullName', user.fullName);
                     this.setState({isAuthenticated: true, user, token});
                     console.log(this.state);
                     console.log(user);
