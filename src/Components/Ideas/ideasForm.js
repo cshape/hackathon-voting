@@ -47,18 +47,18 @@ class IdeasForm extends React.Component {
     return (
       <div className="container">
           <div className="idea-detail-left-column">
-            <Card>
+            <Card id="newIdea">
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text"
-                  placeholder="What's your idea?"
+                  placeholder="Idea title"
                   autofocus="true"
                   className="idea-details-title-input"
                   value= {this.state.title}
                   onChange={this.handleChangeTitle}
                 />
                 <ReactQuill
-                  placeholder="Describe your idea"
+                  placeholder="Idea description"
                   className="idea-details-description-input"
                   value={this.state.description}
                   onChange={this.handleChangeDescription}

@@ -104,7 +104,8 @@ handleSubmitComment(event) {
         description: data.description,
         members: data.members,
         leader: data.leader,
-        comments: data.comments
+        comments: data.comments,
+        likes: data.likes
        }, () => {
         console.log(this.state);
        })); 
@@ -123,10 +124,7 @@ handleSubmitComment(event) {
     <div>
       <div className="container">
           <div className="idea-detail-left-column">
-            <Card>
-              <div className="idea-details-title-input">
-                {this.state.name}
-              </div>
+            <Card title={this.state.name}>
               <div className="idea-details-description-input">
                 {Parser(`${this.state.description}`)}
               </div>
@@ -150,13 +148,12 @@ handleSubmitComment(event) {
           <div className="idea-detail-right-column">
             
             <Card title="Team" links={[{content: 'Join Team', onAction: this.addMembers}]}>
-               {/*<Avatar
-                  initials={this.state.leader.charAt(0)}
-                  textLabel={this.state.leader}
-                  textStyle="bold"
-                  subTextLabel="Leader"
-                  backgroundColor="#FBB134" />*/}
               <IdeaMembers id={this.id} members={this.state.members} />
+            </Card>
+            <Card title="Claps 👏">
+              <div className="idea-details-description-input">
+                This idea has <strong><i>{(this.state.likes == null) ? 0 : this.state.likes }</i></strong> claps.
+              </div>
             </Card>
           </div>
         </div>

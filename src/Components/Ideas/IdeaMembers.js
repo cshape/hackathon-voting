@@ -46,7 +46,7 @@ deleteMember(id, event) {
   						<div className="avatarwrapper" key={i} id={member._id}>
                 <div className="avatarwrapper">
                   <Avatar
-                  initials={member.name.charAt(0)}
+                  initials={(member.name == null) ? "X" : member.name.charAt(0)}
                   textLabel={member.name}
                   textStyle="bold"
                   subTextLabel={member.role}
@@ -70,7 +70,7 @@ deleteMember(id, event) {
             return(
   						<div className="avatarwrapper" key={i} id={member._id}>
                 <Avatar
-                  initials={member.name.charAt(0)}
+                  initials={(member.name == null) ? "X" : member.name.charAt(0)}
                   textLabel={member.name}
                   textStyle="bold"
                   subTextLabel={member.role}

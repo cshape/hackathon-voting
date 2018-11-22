@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import FrontPageMembers from './FrontPageMembers';
 import IdeaLikes from './IdeaLikes';
+import HackImage from '../../hackidea.jpg'
 
 
 class Submissions extends React.Component {
@@ -79,7 +80,6 @@ likeIdea(id, event) {
             [ideaLikesHolder]: idea.likes
            });
            console.log(this.state[ideaLikesHolder]);
-
   	        return(
 
   	          	<tr className="ideaSubmission" key={i} id={idea._id}>
@@ -96,7 +96,7 @@ likeIdea(id, event) {
   									</div>
   								</td>
   								<td>
-                      <button onClick={this.likeIdea.bind(this,ideaId)} id={i} className="button button__small">Clap</button>
+                      <button onClick={this.likeIdea.bind(this,ideaId)} id={i} className="button button__clap">Clap</button>
 
                     {idea.leader === localStorage.getItem('fullName') &&
                       <Link to={editPath}><button className="button button__small">Edit</button></Link>
@@ -149,7 +149,7 @@ likeIdea(id, event) {
                     </div>
                   </td>
                   <td>
-                      <button onClick={this.likeIdea.bind(this,ideaId)} id={i} className="button button__small">Clap</button>
+                      <button onClick={this.likeIdea.bind(this,ideaId)} id={i} className="button button__clap">Clap</button>
 
                     {idea.leader === localStorage.getItem('fullName') &&
                       <Link to={editPath}><button className="button button__small">Edit</button></Link>
@@ -173,7 +173,6 @@ likeIdea(id, event) {
 
         render() {
 
-          console.log(this.props.user);
         	return (
         	<div className="Submissions">
 	      		<table>
@@ -187,6 +186,7 @@ likeIdea(id, event) {
         	</div>
         	);
         }
-      }
+      
+    }
 
 export default Submissions;

@@ -15,7 +15,8 @@ class IdeasEdit extends React.Component {
       name: '',
       description: '',
       leader: '',
-      members: []
+      members: [],
+      title: ''
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeDescription = this.handleChangeDescription.bind(this);
@@ -76,10 +77,23 @@ handleChangeDescription(value) {
   }
 
   addTeamMembers() {
+    let url = `http://localhost:3001/api/idea/${this.id}`
     var newMember = prompt("Enter the name of the new team member");
     var newRole = prompt("What will their role be?");
-    console.log(newMember);
-    console.log(newRole);
+    var memberObject = {
+      'name': newMember,
+      'role': newRole
+    }
+    this.setState({
+      members: [...this.state.members, memberObject]
+    }, () => {
+      axios.put(url, {
+        members: this.state.members
+      }).then(response => {
+        console.log(response, 'member added');
+        console.log(this.state.members);
+      });
+    });
   }
 
   render() {
