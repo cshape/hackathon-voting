@@ -33,7 +33,7 @@ handleChangeComment(value) {
 handleSubmitComment(event) {
     event.preventDefault();
     console.log(this.state);
-    let url = `http://localhost:3001/api/idea/${this.id}`;
+    let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${this.id}`;
     var commentObject = {
       'author': this.props.user.fullName,
       'text': this.state.currentcomment,
@@ -58,7 +58,7 @@ handleSubmitComment(event) {
   deleteMember(id, event) {
     let button = event.target;
     let idKey = button.id;
-    let url = `http://localhost:3001/api/idea/members/${this.id}`;
+    let url = `https://mighty-springs-20769.herokuapp.com/api/idea/members/${this.id}`;
 
     axios.put(url, {
       members: this.state.members.filter(match => match.key !== idKey)
@@ -76,7 +76,7 @@ handleSubmitComment(event) {
   }
 
   addMembers() {
-    let url = `http://localhost:3001/api/idea/${this.id}`
+    let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${this.id}`
     var newMember = prompt("Enter the name of the new team member");
     var newRole = prompt("What will their role be?");
     var memberObject = {
@@ -97,7 +97,7 @@ handleSubmitComment(event) {
 
   componentDidMount() {
 
-    fetch('http://localhost:3001/api/idea/'+ this.id)
+    fetch('https://mighty-springs-20769.herokuapp.com/api/idea/'+ this.id)
       .then(response => response.json())
       .then(data => this.setState({
         name: data.name,

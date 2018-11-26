@@ -25,7 +25,7 @@ class Submissions extends React.Component {
   deleteIdea(id, event) {
   	let button = event.target;
   	let idKey = button.id;
-    let url = `http://localhost:3001/api/idea/${id}`
+    let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${id}`
   	axios.delete(url)
   		.then(response => {
   			console.log(response, "idea deleted.");
@@ -40,7 +40,7 @@ class Submissions extends React.Component {
   }
 
 likeIdea(id, event) {
-  let url = `http://localhost:3001/api/idea/${id}`;
+  let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${id}`;
   let button = event.target;
   let idKey = button.id;
   console.log(idKey);
@@ -65,7 +65,7 @@ likeIdea(id, event) {
 
   componentDidMount(props) {
 
-  			fetch('http://localhost:3001/api/ideas')
+  			fetch('https://mighty-springs-20769.herokuapp.com/api/ideas')
   			.then(results => {
   				return results.json();
   			}).then(data => {
@@ -117,7 +117,7 @@ likeIdea(id, event) {
 
   componentDidUpdate() {
     if (this.state.liked == true) {
-      fetch('http://localhost:3001/api/ideas')
+      fetch('https://mighty-springs-20769.herokuapp.com/api/ideas')
         .then(results => {
           return results.json();
         }).then(data => {

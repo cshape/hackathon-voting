@@ -28,7 +28,7 @@ class IdeasEdit extends React.Component {
     
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/idea/'+ this.id)
+    fetch('https://mighty-springs-20769.herokuapp.com/api/idea/'+ this.id)
       .then(response => response.json())
       .then(data => this.setState({
         name: data.name,
@@ -49,7 +49,7 @@ handleChangeDescription(value) {
   deleteIdea(id, event) {
     let button = event.target;
     let idKey = button.id;
-    let url = `http://localhost:3001/api/idea/${id}`
+    let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${id}`
     axios.delete(url)
       .then(response => {
         console.log(response, "idea deleted.")
@@ -65,7 +65,7 @@ handleChangeDescription(value) {
 
   handleSubmit(event) {
     event.preventDefault();
-    let url = `http://localhost:3001/api/idea/${this.id}`
+    let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${this.id}`
     axios.put(url, {
       name: this.state.name,
       leader: this.state.leader,
@@ -77,7 +77,7 @@ handleChangeDescription(value) {
   }
 
   addTeamMembers() {
-    let url = `http://localhost:3001/api/idea/${this.id}`
+    let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${this.id}`
     var newMember = prompt("Enter the name of the new team member");
     var newRole = prompt("What will their role be?");
     var memberObject = {

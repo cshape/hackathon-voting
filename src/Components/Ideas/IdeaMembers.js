@@ -17,7 +17,7 @@ class IdeaMembers extends React.Component {
 deleteMember(id, event) {
     let button = event.target;
     let idKey = button.id;
-    let url = `http://localhost:3001/api/ideas/members/${this.id}`;
+    let url = `https://mighty-springs-20769.herokuapp.com/api/ideas/members/${this.id}`;
     let member2kill = this.state.members.filter(match => match.key === idKey);
     console.log(member2kill[0].props.id);
 
