@@ -64,6 +64,7 @@ likeIdea(id, event) {
  
 
   componentDidMount(props) {
+        let width = { maxWidth: '50vw' };
 
   			fetch('https://mighty-springs-20769.herokuapp.com/api/ideas')
   			.then(results => {
@@ -83,7 +84,7 @@ likeIdea(id, event) {
   	        return(
 
   	          	<tr className="ideaSubmission" key={i} id={idea._id}>
-  								<td>
+  								<td style={width}>
                     <Link to={path}>
                       <p><strong>{idea.name}</strong></p>
                     </Link><br/>
