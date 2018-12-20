@@ -8,6 +8,7 @@ import IdeasForm from './Components/Ideas/ideasForm';
 import IdeasShow from './Components/Ideas/ideasShow';
 import IdeasEdit from './Components/Ideas/ideasEdit';
 import ScrollToTop from './Components/UI/ScrollToTop';
+import validator from 'validator';
 
 
 import './App.scss';
@@ -47,18 +48,21 @@ googleResponse = (response) => {
         fetch('https://mighty-springs-20769.herokuapp.com/api/google', options).then(r => {
             const token = r.headers.get('x-auth-token');
             console.log(token);
-            r.json().then(user => {
-                console.log("user email:", user.email);
-                localStorage.setItem('userid', user.id);
-                console.log(localStorage.getItem('userid'));
-                if (token) {
-                    localStorage.setItem('token', token);
-                    localStorage.setItem('fullName', user.fullName);
-                    this.setState({isAuthenticated: true, user, token});
-                    console.log(this.state);
-                    console.log(user);
-                }
-            });
+            console.log(r);
+            if (token) {
+              r.json().then(user => {
+                  console.log("user email:", user.email);
+                  localStorage.setItem('userid', user.id);
+                  console.log(localStorage.getItem('userid')); 
+                  localStorage.setItem('token', token);
+                  localStorage.setItem('fullName', user.fullName);
+                  this.setState({isAuthenticated: true, user, token});
+                  console.log(this.state);
+                  console.log(user);   
+              });
+            } else {
+              alert("you gotta be a clion")
+              }
         })
     };
 
@@ -124,7 +128,7 @@ googleResponse = (response) => {
                             clientId={Config.GOOGLE_CLIENT_ID}
                             render={renderProps => (
                                 <button className="googlebutton"
-                                        onClick={renderProps.onClick}>Sign In</button>
+                                        onClick={renderProps.onClick}>Sign In with your Clio Email</button>
                               )}
                             buttonText="Mufukin Google Login"
                             onSuccess={this.googleResponse}
