@@ -21,7 +21,6 @@ class Submissions extends React.Component {
 // send a DELETE http request to the api to delete the idea with the matching id
 // then set the state by to a filtered array of all submissions except the one with the matching id
 
-
   deleteIdea(id, event) {
   	let button = event.target;
   	let idKey = button.id;
@@ -53,8 +52,6 @@ likeIdea(id, event) {
       console.log(err, "idea not liked");
     })
 };
-
- 
 
   componentDidMount(props) {
         let width = { maxWidth: '50vw' };
@@ -88,7 +85,6 @@ likeIdea(id, event) {
   								</td>
   								<td>
                       <button onClick={this.likeIdea.bind(this,ideaId)} id={i} className="button button__clap">Clap</button>
-
                     {idea.leader === localStorage.getItem('fullName') &&
                       <Link to={editPath}><button className="button button__small">Edit</button></Link>
                     }
@@ -97,7 +93,6 @@ likeIdea(id, event) {
                     }
                   </td>
   	          	</tr>
-
             )
   	    })
   	       this.setState({submissions: submissions.reverse()});
@@ -114,7 +109,6 @@ likeIdea(id, event) {
            let path = "/ideasShow/" + idea._id;
            let editPath = "/ideasEdit/" + idea._id;
            let ideaId = idea._id;
-
            let ideaLikesHolder = `idea${i}likes`;
            this.setState({
             [ideaLikesHolder]: idea.likes
@@ -143,7 +137,6 @@ likeIdea(id, event) {
                     }
                   </td>
                 </tr>
-
             )
         })
            this.setState({submissions: submissions.reverse()});

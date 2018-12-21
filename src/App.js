@@ -9,8 +9,6 @@ import IdeasShow from './Components/Ideas/ideasShow';
 import IdeasEdit from './Components/Ideas/ideasEdit';
 import ScrollToTop from './Components/UI/ScrollToTop';
 import validator from 'validator';
-
-
 import './App.scss';
 
 class App extends Component {
@@ -85,7 +83,7 @@ googleResponse = (response) => {
                     user: user,
                     token: authtoken });
           }
-        })  
+        })
       }
 
   render() {
@@ -106,6 +104,7 @@ googleResponse = (response) => {
                 </div>
               </header>
               <div className="app-body">
+
                 <Route  exact path="/" 
                         render={(props) => (
                         this.state.isAuthenticated === true ? (  

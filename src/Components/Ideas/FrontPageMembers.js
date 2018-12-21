@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class FrontPageMembers extends React.Component { 
 	constructor(props) {
 		super(props);
@@ -17,16 +16,16 @@ class FrontPageMembers extends React.Component {
   					return(
   						<div className="avatarwrapwrap" key={i} id={member._id}>
                 <p className="avatarwrapper">{member.name}</p>   
-  						</div>
-                
+  						</div>              
   					)
   				})
   				let theleader = this.props.leader;
-          this.setState({ members: themembers
-                           })
+          this.setState({ members: themembers })
   			}
 
 //on update, check if the member state in ideasShow has changed. if so, update the comments
+
+
 
   		componentDidUpdate(prevProps) {
   			if (prevProps.members !== this.props.members) {
@@ -38,8 +37,7 @@ class FrontPageMembers extends React.Component {
               </div>
   					)
   				})
-  				this.setState({ members: themembers
-           })
+  				this.setState({ members: themembers })
   			}
   		}
 

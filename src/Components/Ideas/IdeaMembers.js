@@ -2,7 +2,6 @@ import React from 'react';
 import Avatar from '../UI/Avatar/Avatar';
 import axios from 'axios';
 
-
 class IdeaMembers extends React.Component { 
 	constructor(props) {
 		super(props);
@@ -12,7 +11,6 @@ class IdeaMembers extends React.Component {
 		this.id = this.props.id;
     this.deleteMember = this.deleteMember.bind(this);
 	}	
-
 
 deleteMember(id, event) {
     let button = event.target;

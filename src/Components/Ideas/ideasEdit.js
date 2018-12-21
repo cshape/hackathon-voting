@@ -24,9 +24,7 @@ class IdeasEdit extends React.Component {
     this.addTeamMembers = this.addTeamMembers.bind(this);
     this.id = props.match.params.id;
   }
-
-    
-
+  
   componentDidMount() {
     fetch('https://mighty-springs-20769.herokuapp.com/api/idea/'+ this.id)
       .then(response => response.json())
@@ -94,7 +92,6 @@ handleChangeDescription(value) {
 
   render() {
     return (
-
       <div className="container">
           <div className="idea-detail-left-column">
             <Card>
@@ -127,19 +124,10 @@ handleChangeDescription(value) {
           </div>
           <div className="idea-detail-right-column">
             <Card title="Team" links={[{content: 'Add team members', onAction: this.addTeamMembers}]}>
-               {/*<Avatar
-                  initials={this.state.leader.charAt(0)}
-                  textLabel={this.state.leader}
-                  textStyle="bold"
-                  subTextLabel="Leader"
-                  backgroundColor="#FBB134" />*/}
               <IdeaMembers id={this.id} members={this.state.members} />
             </Card>
           </div>
         </div>
-
-
-      
     );
   }
 }
