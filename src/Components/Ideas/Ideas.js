@@ -14,7 +14,6 @@ class Ideas extends React.Component {
 
 
  	render() {
- 		console.log(this.props.user);
 		return (
 			<div>
 				<Submissions user={this.props.user} submitting={this.state.submitting} deleteIdea={this.deleteIdea} />

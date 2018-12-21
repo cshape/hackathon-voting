@@ -47,21 +47,15 @@ googleResponse = (response) => {
         };
         fetch('https://mighty-springs-20769.herokuapp.com/api/google', options).then(r => {
             const token = r.headers.get('x-auth-token');
-            console.log(token);
-            console.log(r);
             if (token) {
               r.json().then(user => {
-                  console.log("user email:", user.email);
-                  localStorage.setItem('userid', user.id);
-                  console.log(localStorage.getItem('userid')); 
+                  localStorage.setItem('userid', user.id); 
                   localStorage.setItem('token', token);
                   localStorage.setItem('fullName', user.fullName);
-                  this.setState({isAuthenticated: true, user, token});
-                  console.log(this.state);
-                  console.log(user);   
+                  this.setState({isAuthenticated: true, user, token});  
               });
             } else {
-              alert("you gotta be a clion")
+              alert("Use your official Clio email to log in.")
               }
         })
     };
@@ -69,7 +63,6 @@ googleResponse = (response) => {
   componentDidMount() {
    let authtoken = localStorage.getItem('token');
    let userid = localStorage.getItem('userid')
-   console.log(authtoken);
    const options = {
             method: 'POST',
             headers: {
@@ -84,22 +77,19 @@ googleResponse = (response) => {
         };
    fetch('https://mighty-springs-20769.herokuapp.com/api/google/auth', options)
       .then(res => {
-   return res.json();
-      })
-      .then(user => {
-        if (user.id === userid) {
-          this.setState({ isAuthenticated: true, 
-                  user: user,
-                  token: authtoken });
-          console.log(this.state);
-        }
-      })  
-}
+     return res.json();
+        })
+        .then(user => {
+          if (user.id === userid) {
+            this.setState({ isAuthenticated: true, 
+                    user: user,
+                    token: authtoken });
+          }
+        })  
+      }
 
   render() {
-
     let loggedinuser = this.state.user;
-
     return (
       <BrowserRouter basename="/hackathon-voting">
         <ScrollToTop>
@@ -107,14 +97,12 @@ googleResponse = (response) => {
               <header className="app-header">
                 <h1><Link to="/ideas">Clio Hackathon Forum</Link></h1>
                 <div className="cond-button">
-
                   { 
                     (this.state.isAuthenticated === true)
                       ? <div className="button-row"><div><Link to="/ideasForm" className="button">Submit an Idea</Link></div>
                         <div onClick={this.logout} className="button">Log out</div></div>
                       : <div></div>
                   }
-
                 </div>
               </header>
               <div className="app-body">
@@ -169,7 +157,6 @@ googleResponse = (response) => {
                           ) : (
                           <IdeasForm user={loggedinuser} />)
                       )}/>
-
               </div>
             </div>
           </ScrollToTop>

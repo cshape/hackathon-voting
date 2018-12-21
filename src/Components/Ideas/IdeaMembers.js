@@ -19,16 +19,12 @@ deleteMember(id, event) {
     let idKey = button.id;
     let url = `https://mighty-springs-20769.herokuapp.com/api/ideas/members/${this.id}`;
     let member2kill = this.state.members.filter(match => match.key === idKey);
-    console.log(member2kill[0].props.id);
 
     axios.post(url, {
       deletionId: member2kill[0].props.id
     })
-      .then(response => {
-        console.log(response, "member removed")
-      })
       .catch(err => {
-        console.log(err, "member not removed")
+        console.log(err, "something is fucked")
       })
 
     this.setState(() => ({
@@ -39,7 +35,6 @@ deleteMember(id, event) {
 //set the members from the ideasShow component as the state
 
 		componentDidMount(prevProps) {
-			console.log(this.props.members);
       let themembers = this.props.members.map((member, i) => {
   					let memberId = member._id;
             return(
@@ -56,9 +51,7 @@ deleteMember(id, event) {
   						</div>
   					)
   				})
-          this.setState({ members: themembers
-                           });
-          console.log(themembers);
+          this.setState({ members: themembers });
   			}
 
 //on update, check if the member state in ideasShow has changed. if so, update the comments
@@ -80,9 +73,7 @@ deleteMember(id, event) {
               </div>
   					)
   				})
-  				this.setState({ members: themembers
-           })
-          console.log(themembers);
+  				this.setState({ members: themembers })
   			}
   		}
 

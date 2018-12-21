@@ -51,9 +51,6 @@ handleChangeDescription(value) {
     let idKey = button.id;
     let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${id}`
     axios.delete(url)
-      .then(response => {
-        console.log(response, "idea deleted.")
-      })
       .catch(err => {
         console.log(err, "idea not deleted.")
       })
@@ -70,8 +67,7 @@ handleChangeDescription(value) {
       name: this.state.name,
       leader: this.state.leader,
       description: this.state.description
-    }).then(response => {
-      console.log(response, 'idea edited!');
+    }).then(() => {
       this.props.history.push(`/ideasShow/${this.id}`);
     })
   }

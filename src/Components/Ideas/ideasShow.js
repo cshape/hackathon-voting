@@ -32,7 +32,6 @@ handleChangeComment(value) {
  
 handleSubmitComment(event) {
     event.preventDefault();
-    console.log(this.state);
     let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${this.id}`;
     var commentObject = {
       'author': this.props.user.fullName,
@@ -42,14 +41,11 @@ handleSubmitComment(event) {
 
      this.setState({
       comments: [...this.state.comments, commentObject]
-    }, () => {
-      console.log(this.state.comments);
+     }, () => {
       axios.put(url, {
         comments: this.state.comments
-      }).then(response => {
-      console.log(response, 'comment added');
+      }).then(() => {
       this.setState({ currentcomment: ''})
-      console.log(this.state.comments);
       this.forceUpdate();
     });
   });  
@@ -63,12 +59,9 @@ handleSubmitComment(event) {
     axios.put(url, {
       members: this.state.members.filter(match => match.key !== idKey)
     })
-      .then(response => {
-        console.log(response, "member removed")
-      })
-      .catch(err => {
-        console.log(err, "member not removed")
-      })
+    .catch(err => {
+      console.log(err, "member not removed")
+    })
 
     this.setState(() => ({
       members: this.state.members.filter(match => match.key !== idKey),
@@ -88,10 +81,7 @@ handleSubmitComment(event) {
     }, () => {
       axios.put(url, {
         members: this.state.members
-      }).then(response => {
-        console.log(response, 'member added');
-        console.log(this.state.members);
-      });
+      })
     });
   }
 
@@ -107,46 +97,36 @@ handleSubmitComment(event) {
         comments: data.comments,
         likes: data.likes
        }, () => {
-        console.log(this.state);
        })); 
   }
 
-
-
-
-
   render() {   
-
     return (
-      
+      <div>
+        <div className="container">
+            <div className="idea-detail-left-column">
+              <Card title={this.state.name}>
+                <div className="idea-details-description-input">
+                  {Parser(`${this.state.description}`)}
+                </div>
+              </Card>
+              <Card title="Comments">
+               
+               <IdeaComments id={this.id} comments={this.state.comments} />
+               <ReactQuill
+                    placeholder="Add a comment"
+                    className="idea-details-description-input"
+                    value={this.state.currentcomment}
+                    onChange={this.handleChangeComment}
+                  >
+                  </ReactQuill>
+                  <button className="button" onClick={this.handleSubmitComment}>
+                    Post comment
+                  </button> 
+              </Card>
+            </div>
 
-
-    <div>
-      <div className="container">
-          <div className="idea-detail-left-column">
-            <Card title={this.state.name}>
-              <div className="idea-details-description-input">
-                {Parser(`${this.state.description}`)}
-              </div>
-            </Card>
-            <Card title="Comments">
-             
-             <IdeaComments id={this.id} comments={this.state.comments} />
-             <ReactQuill
-                  placeholder="Add a comment"
-                  className="idea-details-description-input"
-                  value={this.state.currentcomment}
-                  onChange={this.handleChangeComment}
-                >
-                </ReactQuill>
-                <button className="button" onClick={this.handleSubmitComment}>
-                  Post comment
-                </button> 
-            </Card>
-          </div>
-
-          <div className="idea-detail-right-column">
-            
+          <div className="idea-detail-right-column"> 
             <Card title="Team" links={[{content: 'Join Team', onAction: this.addMembers}]}>
               <IdeaMembers id={this.id} members={this.state.members} />
             </Card>
@@ -157,9 +137,7 @@ handleSubmitComment(event) {
             </Card>
           </div>
         </div>
-      </div>
-
-      
+      </div>      
     );
   }
 }

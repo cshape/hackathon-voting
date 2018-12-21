@@ -27,9 +27,6 @@ class Submissions extends React.Component {
   	let idKey = button.id;
     let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${id}`
   	axios.delete(url)
-  		.then(response => {
-  			console.log(response, "idea deleted.");
-  		})
   		.catch(err => {
   			console.log(err, "idea not deleted.")
   		})
@@ -43,18 +40,14 @@ likeIdea(id, event) {
   let url = `https://mighty-springs-20769.herokuapp.com/api/idea/${id}`;
   let button = event.target;
   let idKey = button.id;
-  console.log(idKey);
   axios.post(url)
-    .then(response => {
-      console.log(response, "idea liked");
+    .then(() => {
       let ideaLikesHolder = `idea${idKey}likes`;
       let idea = this.state[ideaLikesHolder];
       this.setState({
         [ideaLikesHolder]: +this.state[ideaLikesHolder] + 1,
         liked: true
       })
-      console.log(this.state[ideaLikesHolder]);
-      console.log(this.state);
     })
     .catch(err => {
       console.log(err, "idea not liked");
@@ -76,13 +69,10 @@ likeIdea(id, event) {
            let ideaId = idea._id;
 
            let ideaLikesHolder = `idea${i}likes`;
-           console.log(ideaLikesHolder);
            this.setState({
             [ideaLikesHolder]: idea.likes
            });
-           console.log(this.state[ideaLikesHolder]);
   	        return(
-
   	          	<tr className="ideaSubmission" key={i} id={idea._id}>
   								<td style={width}>
                     <Link to={path}>
@@ -111,8 +101,6 @@ likeIdea(id, event) {
             )
   	    })
   	       this.setState({submissions: submissions.reverse()});
-  	       // console.log(submissions);
-  	       console.log(this.state.submissions);
   			})
   }
 
@@ -128,14 +116,10 @@ likeIdea(id, event) {
            let ideaId = idea._id;
 
            let ideaLikesHolder = `idea${i}likes`;
-           console.log(ideaLikesHolder);
            this.setState({
             [ideaLikesHolder]: idea.likes
            });
-           console.log(this.state[ideaLikesHolder]);
-
             return(
-
                 <tr className="ideaSubmission" key={i} id={idea._id}>
                   <td>
                     <Link to={path}>
@@ -150,8 +134,7 @@ likeIdea(id, event) {
                     </div>
                   </td>
                   <td>
-                      <button onClick={this.likeIdea.bind(this,ideaId)} id={i} className="button button__clap">Clap</button>
-
+                    <button onClick={this.likeIdea.bind(this,ideaId)} id={i} className="button button__clap">Clap</button>
                     {idea.leader === localStorage.getItem('fullName') &&
                       <Link to={editPath}><button className="button button__small">Edit</button></Link>
                     }
@@ -165,29 +148,23 @@ likeIdea(id, event) {
         })
            this.setState({submissions: submissions.reverse()});
            this.setState({liked: false});
-           // console.log(submissions);
-           console.log(this.state.submissions);
-        })
+      })
     }
   }
-
-
-        render() {
-
-        	return (
-        	<div className="Submissions">
-	      		<table>
-							<tr>
-								<th>Idea name</th>
-								<th>Team</th>
-								<th>Actions</th>
-							</tr>
-	      			{this.state.submissions}
-	      		</table>
-        	</div>
-        	);
-        }
-      
-    }
+  render() {
+  	return (
+  	<div className="Submissions">
+  		<table>
+				<tr>
+					<th>Idea name</th>
+					<th>Team</th>
+					<th>Actions</th>
+				</tr>
+  			{this.state.submissions}
+  		</table>
+  	</div>
+  	);
+  }     
+}
 
 export default Submissions;

@@ -38,8 +38,7 @@ class IdeasForm extends React.Component {
       members: this.state.members,
       likes: 0,
       hacksession: 'January 2019'
-    }).then(response => {
-      console.log(response, 'idea noted!');
+    }).then(() => {
       this.props.history.push('/Ideas');
     })
   }
