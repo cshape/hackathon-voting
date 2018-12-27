@@ -37,7 +37,7 @@ class IdeasEdit extends React.Component {
   }
 
 handleChangeTitle(event) {
-    this.setState({title: event.target.value});
+    this.setState({name: event.target.value});
   }
 
 handleChangeDescription(value) {
