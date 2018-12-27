@@ -89,7 +89,7 @@ googleResponse = (response) => {
   render() {
     let loggedinuser = this.state.user;
     return (
-      <HashRouter basename="/hackathon-forum">
+      <HashRouter basename="/app">
         <ScrollToTop>
           <div className="App">
               <header className="app-header">
