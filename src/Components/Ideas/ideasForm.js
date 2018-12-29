@@ -21,6 +21,15 @@ class IdeasForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      members: [{
+        'name': this.props.user.fullName,
+        'role': 'Leader'
+      }]
+    })
+  }
+
   handleChangeTitle(event) {
     this.setState({title: event.target.value});
   }
@@ -28,6 +37,7 @@ class IdeasForm extends React.Component {
   handleChangeDescription(value) {
     this.setState({ description: value });
   }
+
 
 	handleSubmit(event) {
     event.preventDefault();

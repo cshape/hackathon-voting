@@ -52,7 +52,7 @@ deleteMember(id, event) {
           this.setState({ members: themembers });
   			}
 
-//on update, check if the member state in ideasShow has changed. if so, update the comments
+//on update, check if the member state in ideasShow has changed. if so, update the members
 
   		componentDidUpdate(prevProps) {
   			if (prevProps.members !== this.props.members) {

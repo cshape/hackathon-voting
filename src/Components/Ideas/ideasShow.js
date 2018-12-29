@@ -97,7 +97,9 @@ handleSubmitComment(event) {
         comments: data.comments,
         likes: data.likes
        }, () => {
-       })); 
+  
+    })); 
+
   }
 
   render() {   
