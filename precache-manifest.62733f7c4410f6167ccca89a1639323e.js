@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/hackathon-forum/static/js/runtime~main.36b08184.js"
   },
   {
-    "revision": "d976110c8af9a2f64638",
-    "url": "/hackathon-forum/static/js/main.d976110c.chunk.js"
+    "revision": "c0fdadb0e3a21aa88b91",
+    "url": "/hackathon-forum/static/js/main.c0fdadb0.chunk.js"
   },
   {
-    "revision": "e65809b8aefa61802881",
-    "url": "/hackathon-forum/static/js/1.e65809b8.chunk.js"
+    "revision": "f3de6a53d5ee94c374c8",
+    "url": "/hackathon-forum/static/js/1.f3de6a53.chunk.js"
   },
   {
-    "revision": "d976110c8af9a2f64638",
+    "revision": "c0fdadb0e3a21aa88b91",
     "url": "/hackathon-forum/static/css/main.a196949e.chunk.css"
   },
   {
-    "revision": "e65809b8aefa61802881",
+    "revision": "f3de6a53d5ee94c374c8",
     "url": "/hackathon-forum/static/css/1.3a9c4a3a.chunk.css"
   },
   {
-    "revision": "bd91c4e233cc5d6ca2da98b4a61c6896",
+    "revision": "a7b6339a48d9d5130d59107d9e7bc93f",
     "url": "/hackathon-forum/index.html"
   }
 ];
