@@ -92,7 +92,7 @@ googleResponse = (response) => {
       <HashRouter basename="/app">
         <ScrollToTop>
           <div className="App">
-              <header className="app-header">
+             {/* <header className="app-header">
                 <h1><Link to="/ideas">Clio Hackathon Forum</Link></h1>
                 <div className="cond-button">
                   { 
@@ -102,10 +102,20 @@ googleResponse = (response) => {
                       : <div></div>
                   }
                 </div>
-              </header>
+              </header>*/}
               <div className="app-body">
 
-                <Route  exact path="/" 
+                 <Route  exact path="/" 
+                        render={() => (
+                          <div className="centered">
+                            <h1>This project is going to be tightened up for MAXIMUM security.</h1>
+                            <h1>In the meantime, go to <a href="https://discourse.clio.systems/c/hackathons/hackathon-pitch-zone-january-2019">Discourse</a></h1>
+                          </div>
+                          )
+                      }
+                        />
+
+                {/*<Route  exact path="/" 
                         render={(props) => (
                         this.state.isAuthenticated === true ? (  
                           <Redirect to="/ideas"/>
@@ -122,7 +132,7 @@ googleResponse = (response) => {
                             onFailure={this.googleResponse}
                           />
                         </div>)
-                      )}/>
+                      )}/>*/}
 
                 <Route  path="/ideas" 
                         render={(props) => (
