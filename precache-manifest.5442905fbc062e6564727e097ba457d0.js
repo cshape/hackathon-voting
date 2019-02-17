@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/hackathon-forum/static/css/1.d3de4d40.chunk.css"
   },
   {
-    "revision": "8480d78b7872ac4b7808030f79596913",
+    "revision": "ac616d97870fcb7588b59ce9891d20fd",
     "url": "/hackathon-forum/index.html"
   }
 ];
