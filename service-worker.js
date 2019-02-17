@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/hackathon-forum/precache-manifest.bc19686ab5b3010927243c235ef94ff3.js"
+  "/hackathon-forum/precache-manifest.95640bebfc88b162db5a8692ba27bf58.js"
 );
 
 workbox.clientsClaim();
