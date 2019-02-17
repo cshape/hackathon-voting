@@ -43,7 +43,7 @@ googleResponse = (response) => {
             mode: 'cors',
             cache: 'default'
         };
-        fetch('http://localhost:3001/api/google', options).then(r => {
+        fetch('https://mighty-springs-20769.herokuapp.com/api/google', options).then(r => {
             const token = r.headers.get('x-auth-token');
             if (token) {
               r.json().then(user => {
@@ -73,7 +73,7 @@ googleResponse = (response) => {
             mode: 'cors',
             // cache: 'default'
         };
-   fetch('http://localhost:3001/api/google/auth', options)
+   fetch('https://mighty-springs-20769.herokuapp.com/api/google/auth', options)
       .then(res => {
      return res.json();
         })
