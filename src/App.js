@@ -43,7 +43,7 @@ googleResponse = (response) => {
             mode: 'cors',
             cache: 'default'
         };
-        fetch('https://mighty-springs-20769.herokuapp.com/api/google', options).then(r => {
+        fetch('http://localhost:3001/api/google', options).then(r => {
             const token = r.headers.get('x-auth-token');
             if (token) {
               r.json().then(user => {
@@ -53,7 +53,7 @@ googleResponse = (response) => {
                   this.setState({isAuthenticated: true, user, token});  
               });
             } else {
-              alert("Use your official Clio email to log in.")
+              alert("Use a Gmail Email to Log In")
               }
         })
     };
@@ -71,9 +71,9 @@ googleResponse = (response) => {
               'id': userid
             }),
             mode: 'cors',
-            cache: 'default'
+            // cache: 'default'
         };
-   fetch('https://mighty-springs-20769.herokuapp.com/api/google/auth', options)
+   fetch('http://localhost:3001/api/google/auth', options)
       .then(res => {
      return res.json();
         })
@@ -93,7 +93,7 @@ googleResponse = (response) => {
         <ScrollToTop>
           <div className="App">
              { <header className="app-header">
-                <h1><Link to="/ideas">Clio Hackathon Forum</Link></h1>
+                <h1><Link to="/ideas">Hackathon Ideas Forum</Link></h1>
                 <div className="cond-button">
                   { 
                     (this.state.isAuthenticated === true)
@@ -115,7 +115,7 @@ googleResponse = (response) => {
                             clientId={Config.GOOGLE_CLIENT_ID}
                             render={renderProps => (
                                 <button className="googlebutton"
-                                        onClick={renderProps.onClick}>Sign In with your Clio Email</button>
+                                        onClick={renderProps.onClick}>Sign In with Gmail</button>
                               )}
                             buttonText="Mufukin Google Login"
                             onSuccess={this.googleResponse}
